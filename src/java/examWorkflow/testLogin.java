@@ -18,7 +18,6 @@ class testLogin {
 	
 	@Test
 	public void testGetUsr() {
-		login.setUsrname("d");
 		String username = login.getUsrname();
 		assertNotNull(username);
 	}
