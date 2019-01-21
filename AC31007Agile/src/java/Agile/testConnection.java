@@ -10,7 +10,7 @@ import java.sql.*;
  *
  * @author Danyal
  */
-public class landingPage {
+public class testConnection {
     
     public static void main(String[] args) {
         
