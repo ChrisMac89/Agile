@@ -27,8 +27,8 @@
         <h1 style="color: #5e9ca0; text-align: center;"><span style="color: #ffffff;">Log In</span></h1>
         
         <%-- form for login system --%>
-        <form action="login.jsp" method="POST">
-            
+        <form action="login.jsp" method="POST"> 
+             
          
                
                
