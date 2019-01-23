@@ -25,7 +25,8 @@ if(flag){
 	session.setAttribute("user_session", obj_Login_Bean); 
 	%>
 	<script type="text/javascript">
-	window.location.href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-home-page/<%=obj_Login_Bean.getEmail()%>";
+	<%--window.location.href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-home-page/<%=obj_Login_Bean.getEmail()%>"; --%>
+	window.location.href="http://localhost:8080/Login_Project/user-home-page/<%=obj_Login_Bean.getEmail()%>";
 	</script>
 	<% 
 } else {
@@ -35,7 +36,8 @@ if(flag){
 	session.setAttribute("login_message", "Login failed, Username and password is wrong"); 
 	%>
 	<script type="text/javascript">
-	window.location.href="http://silva.computing.dundee.ac.uk/2018-agileteam2/index.jsp";
+	<%-- window.location.href="http://silva.computing.dundee.ac.uk/2018-agileteam2/index.jsp"; --%>
+	window.location.href="http://localhost:8080/Login_Project/index.jsp";
 	</script>
 	<% 
 	

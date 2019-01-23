@@ -14,7 +14,8 @@
 		session.setAttribute("login_message", "Please Login First");
 		%>
 		<script type="text/javascript">
-		window.location.href="http://silva.computing.dundee.ac.uk/2018-agileteam2/index.jsp ";
+		<%-- window.location.href="http://silva.computing.dundee.ac.uk/2018-agileteam2/index.jsp "; --%>
+		window.location.href="http://localhost:8080/Login_Project/index.jsp";
 		</script>
 		<% 
 	}
@@ -25,9 +26,14 @@
 
 <table border="1">
 <tr>
-<td><a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-home-page">Upload</a></td>
-<td><a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-profile">My Page</a></td>
-<td><a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/Signoutcontroller"></a>Log Out</td>
+<%--  <td><a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-home-page">Upload</a></td> --%>
+<td><a href="http://localhost:8080/Login_Project/user-home-page">Upload</a></td>
+
+<%-- <td><a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-profile">My Page</a></td> --%>
+<td><a href="http://localhost:8080/Login_Project/user-profile">My Page</a></td>
+
+<%-- <td><a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/Signoutcontroller"></a>Log Out</td> --%>
+<td><a href="http://localhost:8080/Login_Project/Signoutcontroller">Log Out</a></td>
 </tr>
 </table>
 </center>
