@@ -27,7 +27,7 @@
    <%
    try
    {
-       Class.forName("com.mysql.cj.jdbc.Driver");
+       Class.forName("com.mysql.jdbc.Driver");
        String url="jdbc:mysql://silva.computing.dundee.ac.uk:3306/18agileteam2db";
        String username="18agileteam2";
        String password="8474.at2.4748";
@@ -38,14 +38,18 @@
        while(rs.next())
        {
    %>
+       <tr><td><%out.println(rs.getString("resitExam")); %></td></tr>
+       <tr><td>       
+       		<a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/<%=rs.getString("exam") %>">
+       			<%out.println(rs.getString("exam")); %>
+       		</a>
+       	</td></tr>
+       			
        <tr><td>
-       <a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/">
- 			<%out.println(rs.getString("resitExam")); %>   
- 			
-  		</a>
- </td></tr>
-       <tr><td><%out.println(rs.getString("exam")); %></td></tr>
-       <tr><td><%out.println(rs.getString("solution")); %></td></tr>
+       		<a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/<%=rs.getString("solution") %>">
+       			<%out.println(rs.getString("solution")); %>
+       		</a>
+        </td></tr>
        <tr><td><%out.println(rs.getString("stage")); %></td></tr>
  
    <%
@@ -65,6 +69,7 @@
         e.printStackTrace();
    }
    %>
+   </table>
 </form>`
 
 </body>
