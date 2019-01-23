@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- Custom styles for this template -->
+    <link href="/css/full.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
@@ -32,8 +34,9 @@ if(flag){
 } else {
 
 
-
+	 
 	session.setAttribute("login_message", "Login failed, Username and password is wrong"); 
+    
 	%>
 	<script type="text/javascript">
 	<%-- window.location.href="http://silva.computing.dundee.ac.uk/2018-agileteam2/index.jsp"; --%>
