@@ -4,51 +4,87 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+
+<link href="css/examPage.css" rel="stylesheet">
+<title>Exam Page</title>
 </head>
 <body>
 
-                <p class=>
+  <div class="container">
+
+ <p><img style="display: block; margin-left: auto; margin-right: auto;" src="./resources/logo.png" alt="" width="400" height="137" /></p>
+        <h2 style="color: #5e9ca0; text-align: center;"><span style="color: Black;">Exam Page</span></h2>
+        <br>
+       <div class="Tablecontainer"> 
+        
+        <table style="border-color: #000000;" border="0">
+		<tr>
+			<td style="width: 180px;"><p class=>
                     <i class=></i>
                     Exam Title:
-                </p>
-
-                <p class=>
+                </p></td>
+			<td style="width: 294px;">Cell information Here</td>
+		</tr>
+		
+		<tr>
+			<td><p class=>
                     <i class=></i>
                   	Exam ID:
-                </p>
-
-                <p>
+                </p></td>
+			<td>Bla Bla</td>
+		</tr>
+		
+		<tr>
+			<td><p>
                     <i class=></i>
                     Exam Type:
-                </p>            
-
-                <p>
+                </p>   </td>
+			<td>Cell</td>
+		</tr>
+		
+		<tr>
+			<td> <p>
                     <i  class=></i>
                     Module Code:
-                </p>                
-
-                <p>
+                </p>   </td>
+			<td>Cell</td>
+		</tr>
+		
+		<tr>
+			<td> <p>
                     <i class=></i>
                     Module Coordinator:
-                </p>    
-                
-                <p>
+                </p>    </td>
+			<td>Cell</td>
+		</tr>
+		
+		<tr>
+			<td> <p>
                     <i class=></i>
                     Level:
-                </p> 
-                
-                <p>
+                </p> </td>
+			<td>Cell</td>
+		</tr>
+		
+		<tr>
+			<td><p>
                     <i class=></i>
                     Year:
-                </p>                  
-                
-                <p>
+                </p>   </td>
+			<td>Cell</td>
+		</tr>
+		
+		<tr>
+			<td>   <p>
                     <i class=></i>
                     Stage:
                 </p>                                         
-
-
+				 </td>
+			<td>Cell</td>
+		</tr>
+	</table>
+             
+<p>Comments:</p>
   <form action="nextPage.jsp" method="POST">
 		<textarea style="width: 467px; height: 177px; "></textarea>
 		<br><br>
@@ -56,5 +92,7 @@
 		<br><br>
 		<input type="submit" value = "Submit">
 	</form>
+	</div>
+	  <div>
 </body>
 </html>

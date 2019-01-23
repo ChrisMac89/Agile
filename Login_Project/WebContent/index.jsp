@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Welcome to Exam System</title>
-        <!-- Custom styles for this template -->
+        <!-- Custom styles for this page -->
     <link href="css/full.css" rel="stylesheet">
 	<!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
