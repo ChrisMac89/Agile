@@ -124,6 +124,8 @@ public class Upload extends HttpServlet {
                     ex.printStackTrace();
                 }
             }
+            
+            
             // sets the message in request scope
             request.setAttribute("Message", message);
              
