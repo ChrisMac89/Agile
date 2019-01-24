@@ -1,0 +1,109 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package common_things;
+
+import common_things.metadata;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author Chris
+ */
+public class LoginTest {
+    
+    public LoginTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
+
+      /**
+     * Test of getUsrname method, of class Login.
+     */
+    @Test
+    public void testGetUsrname() {
+       Login l = new Login();
+    	String empty = l.getUsrname(); //should be true
+    	assertNotNull(empty);
+    }
+
+    /**
+     * Test of getPass method, of class Login.
+     */
+    @Test
+    public void testGetPass() {
+
+               Login l = new Login();
+    	String empty = l.getPass(); //should be true
+    	assertNotNull(empty);
+    }
+    
+    /**
+     * Test of setPass method, of class Login.
+     */
+    @Test
+    public void testSetPass() {
+        //creates an object for testing
+        final Login login = new Login();
+        //sets a function with the information inside of it as "foo"
+        login.setPass("bar");
+        //using the assert equals function, tests to see if they equal each other.
+        assertEquals("Fields didn't match", login.getPass(), "bar");
+    }
+
+
+
+    /**
+     * Test of verifyPass method, of class Login.
+     */
+    @Test
+    public void testVerifyPass() {
+        
+        
+        System.out.println("verifyPass");
+        //testing to see if passwords match in the method. 
+        String password = "";
+        Login instance = new Login();
+        
+        //expected that the variables match. 
+        boolean expResult = true;
+        boolean result = instance.verifyPass(password);
+        assertEquals(expResult, result);
+       
+    }
+    
+        @Test
+    public void testSetUsrname() throws NoSuchFieldException, IllegalAccessException {
+        //creates an object for testing
+        final Login login = new Login();
+
+        //sets a function with the information inside of it as "foo"
+        login.setUsrname("foo");
+        
+        //using the assert equals function, tests to see if they equal each other.
+        assertEquals("Fields didn't match", login.getUsrname(), "foo");
+    }
+
+    
+}

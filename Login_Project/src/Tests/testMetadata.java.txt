@@ -1,0 +1,191 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package common_things;
+
+import common_things.metadata;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author Chris
+ */
+public class metadataTest {
+    
+    public metadataTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
+
+    /**
+     * Test of connect method, of class metadata.
+     */
+    @Test
+    public void testConnect() {
+        System.out.println("connect");
+        metadata instance = new metadata();
+        instance.connect();
+        
+    }
+
+    /**
+     * Test of query method, of class metadata.
+     */
+    @Test
+    public void testQuery() {
+         String id = "test";
+        metadata metadata = new metadata();
+        
+        boolean pass = metadata.query(id);
+       assertTrue(pass);
+    }
+
+    /**
+     * Test of getTitle method, of class metadata.
+     * 
+     * Testing the getTitle method that Retrieves a String title and returns it
+     */
+    @Test
+    public void testGetTitle() {
+        System.out.println("getTitle");
+        
+        //creates a new object for testing
+        metadata metadata = new metadata();
+        String expResult = "";
+        String result = metadata.getTitle();
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test of getExamCode method, of class metadata.
+     * 
+     * Testing the getTitle method that Retrieves a String examCode 
+     * and returns it
+     */
+    @Test
+    public void testGetExamCode() {
+        System.out.println("getExamCode");
+        metadata metadata = new metadata();
+        String expResult = "";
+        String result = metadata.getExamCode();
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test of getModCode method, of class metadata.
+     * 
+     * Testing the getModCode method that retrieves a string and 
+     * compares it.
+     */
+    @Test
+    public void testGetModCode() {
+        System.out.println("getModCode");
+        metadata metadata = new metadata();
+        String expResult = "";
+        String result = metadata.getModCode();
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test of getCoord method, of class metadata.
+     * 
+     * Testing the getTitle method that retrieves a String Coor 
+     * and compares it.
+     */
+    @Test
+    public void testGetCoord() {
+        System.out.println("getCoord");
+        metadata metadata = new metadata();
+        String expResult = "";
+        String result = metadata.getCoord();
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test of getType method, of class metadata.
+     * 
+     * Testing the getTitle method that Retrieves a string for type 
+     * and compares it.
+     */
+    @Test
+    public void testGetType() {
+        System.out.println("getType");
+        metadata metadata = new metadata();
+        String expResult = "";
+        String result = metadata.getType();
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test of getLevel method, of class metadata.
+     * 
+     * Retrieves a string and compares it.
+     */
+    @Test
+    public void testGetLevel() {
+        System.out.println("getLevel");
+        metadata instance = new metadata();
+        String expResult = "";
+        String result = instance.getLevel();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getYear method, of class metadata. 
+     * 
+     * Testing the getTitle method that Retrieves a String 
+     * and compares it. 
+     */
+    @Test
+    public void testGetYear() {
+        System.out.println("getYear");
+        metadata instance = new metadata();
+        String expResult = "";
+        String result = instance.getYear();
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test of getFormat method, of class metadata.
+     * 
+     * Testing the getTitle method that to see if the String format 
+     * can be retrieved.
+     */
+    @Test
+    public void testGetFormat() {
+        System.out.println("getFormat");
+        metadata metadata = new metadata();
+        String expResult = "";
+        String result = metadata.getFormat();
+        assertEquals("This test has failed", expResult, result);
+        
+    }
+    
+}
