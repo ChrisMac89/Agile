@@ -1,21 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.sql.Statement"%>
+<%@ page import="java.sql.Connection"%>
+<%@ page import="java.sql.DriverManager"%>
+
 <%@page import="bean.Login_Bean"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="common_things.DB_Connection"%>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+	<title>University of Dundee Exam Review Dashboard</title>
+	<!-- CSS for styling -->
+	<link href="./././css/Dashboard.css" rel="stylesheet">
+	<!-- Bootstrap core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
-
 <%
 	Login_Bean obj_Login_Bean = (Login_Bean)session.getAttribute("user_session");
 	if(obj_Login_Bean == null){
@@ -28,86 +40,97 @@
 		<% 
 	}
 %> 
+	<div class="container">
 
-<center>
-<h1>Upload Page</h1>
 
-<table border="1">
-<tr>
-<%-- <td><a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-home-page">Upload</a></td> --%>
-<td><a href="http://localhost:8080/Login_Project/user-home-page">Upload</a></td>
+		<p>
+			<img style="display: block; margin-left: auto; margin-right: auto;"
+				src="./resources/logo.png" alt="" width="400" height="137" />
+		</p>
+		<h2 style="color: #5e9ca0; text-align: center;">
+			<span style="color: black;">Dashboard</span>
+		</h2>
+		<br>
 
-<%-- <td><a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-profile">My Page</a></td> --%>
-<td><a href="http://localhost:8080/Login_Project/user-profile">My Page</a></td>
+		<div class="Tablecontainer">
 
-<%-- <td><a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/Signoutcontroller">Log Out</a></td> --%>
-<td><a href="http://localhost:8080/Login_Project/Signoutcontroller">My Page</a></td>
-</tr>
-</table>
-</center>
 
-<h3>File Upload:</h3>
-      Select a file to upload: <br />
-      <form action = "uploadServlet" method = "post"
-         enctype = "multipart/form-data">
-         <input type = "file" name = "file" size = "50" />
-         <br />
-         <br>
-         <input type = "submit" value = "Upload File" />
-      </form>
-      
-      
-      
-      <table border="1" width="25%" cellpadding="5">
-            <thead> 
-               <th colspan="3">Uploaded Files</th>        
-            </thead>
-                <tbody>
-                    <tr>
-                        <td><center><b>Id</b></center><td><center><b>Title</b></center></td><td><center><b>File</b></center></td>
-                    </tr>
-                    
-                    <%
-                        try
-                        {
-                                DB_Connection dbconn=new DB_Connection();
-                                Connection myconnection= dbconn.getConnection();
 
-                                String sqlString = "SELECT * FROM exam";
-                                Statement myStatement = myconnection.createStatement();
-                                ResultSet rs=myStatement.executeQuery(sqlString);
-                                
-                                if(!rs.isBeforeFirst())
-                                {
-                                    %>
-                                        <tr>
-                                        <td colspan="3"><center><%out.print("No Files!"); %></center></td>
-                                        </tr>
-                                    <%
-                                }    
-                                
-                                while(rs.next())
-                                {   
-                            %>
-                                    <tr>
-                                        <td><center><%out.print(rs.getString("exam")); %></center></td>
-                                        <td><center><%out.print(rs.getString("stage")); %></center></td>
-                                        <td><center><a href="profile/view/view_file.jsp?examId=<%out.print(rs.getString("examId"));%>">View</a></center></td>
-                                    </tr>
-                            <%
-                                }
-                            %>
-                            
-                </tbody> 
-        </table>
-                            
-                            <%
-                                rs.close();
-                                myStatement.close();
-                                myconnection.close();
-                        }catch(Exception e){e.printStackTrace();}    
-                        
-                    %>
+			<form method="post">
 
+				<table style="color: #000000;" border="2">
+					<tr>
+						<td>Resit</td>
+						<td>Exam</td>
+						<td>Solution</td>
+						<td>Stage</td>
+					</tr>
+					<%
+   try
+   {
+       Class.forName("com.mysql.jdbc.Driver");
+       String url="jdbc:mysql://silva.computing.dundee.ac.uk:3306/18agileteam2db";
+       String username="18agileteam2";
+       String password="8474.at2.4748";
+       String query="SELECT exam, examId, solution, stage, resitExam FROM exam";
+       Connection conn=DriverManager.getConnection(url, username, password);
+       Statement stmt=conn.createStatement();
+       ResultSet rs=stmt.executeQuery(query);
+       while(rs.next())
+       {
+   %>
+					<tr>
+						<td>
+							<%out.println(rs.getString("resitExam")); %>
+						</td>
+						<td><a
+							href="http://localhost:8080/Login_Project/examPage.jsp?examId=<%out.print(rs.getString("examId"));%>"><%=rs.getString("exam") %></a>
+						</center></td>
+
+
+						<!-- <a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/"> -->
+
+						</a>
+						</td>
+
+						<td><a
+							href="http://localhost:8080/<%=rs.getString("solution") %>">
+
+								<!--  <a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/<%=rs.getString("solution") %>"> -->
+
+								<%out.println(rs.getString("solution")); %>
+						</a></td>
+						<td>
+							<%out.println(rs.getString("stage")); %>
+						</td>
+					</tr>
+
+					<%
+       }
+   %>
+					<%=rs.getString("resitExam") %>
+					<td><%=rs.getString("exam") %></td>
+					<td><%=rs.getString("solution") %></td>
+					<td><%=rs.getString("stage") %></td>
+					<%
+        rs.close();
+        stmt.close();
+        conn.close();
+   }
+   catch(Exception e)
+   {
+        e.printStackTrace();
+   }
+   %>
+				</table>
+			</form>
+			`
+		</div>
+	</div>
+
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

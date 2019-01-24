@@ -104,7 +104,7 @@
 		</tr>
 	</table>
 	
-<a class="btn btn-primary" href="profile/view/view_file.jsp?examId=<%out.print(meta.getExamCode());%>" role="button">Download Exam</a>     
+<a class="btn btn-primary" href="profile/view/view_file.jsp?examId=<%out.print(meta.getExamCode());%>" target="_blank" role="button">Download Exam</a>     
         
 <p>Comments:</p>
   <form action="nextPage.jsp" method="POST">
