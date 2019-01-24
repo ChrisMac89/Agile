@@ -2,19 +2,21 @@ package common_things;
 import java.sql.*;
 
 public class metadata {
+	/*
 	// main for testing purposes
-	/*public static void main(String[] args) 
+	public static void main(String[] args) 
 	{
 		metadata meta = new metadata();
 		meta.connect();
-		meta.query("8");
+		meta.query("1");
 		String x = "";
-		System.out.println(x = meta.getVar());
+		System.out.println(x = meta.getTitle());
 	}*/
 	
 	String title, examCode, modCode, coord, type, level, year, format, query;
 	Connection con;
 	ResultSet rs;
+	Statement smt;
 	
 	public metadata() {
 		 title = examCode = modCode = coord = type = level = year = format = query = "";
@@ -43,8 +45,8 @@ public class metadata {
 		public void query(String id) {
 						
 			try {
-				Statement smt = con.createStatement();
-				rs = smt.executeQuery("SELECT * FROM metaData WHERE examID = " + id);
+				smt = con.createStatement();
+				rs = smt.executeQuery("SELECT * FROM exam WHERE examId = " + id);
 				
 				
 				if(rs.next()) {
@@ -58,10 +60,19 @@ public class metadata {
 					format = rs.getString("examFormat");
 			       }
 				
-				
 				System.out.println("query success"); 
 			}
 			catch(SQLException e) { System.out.println("SQL exception occured " + e); }
+			finally 
+			{
+				try 
+				{
+				rs.close();
+		        smt.close();
+		        con.close();
+				}
+				catch(SQLException e) { System.out.println("SQL exception occured " + e); }
+			}
 		}
 	
 		public String getTitle() {

@@ -18,7 +18,7 @@
   <%
   metadata meta = new metadata();
   meta.connect();
-  meta.query("8"); //change this parameter to show results for a different exam (currently displaying metadata for exam with ID 8)
+  meta.query("1"); //change this parameter to show results for a different exam (currently displaying metadata for exam with ID 8)
   %>
   
  <p><img style="display: block; margin-left: auto; margin-right: auto;" src="./resources/logo.png" alt="" width="400" height="137" /></p>
