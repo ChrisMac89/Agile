@@ -31,9 +31,13 @@ body {
     margin-left: 8%;
     margin-right: 8%;
     position: relative;
-    padding-left:1%;
+    
     color: black;
     background-color: #ffffff;
+	float:none;
+    top: 50%;
+    left: 50%;
+  	transform: translate(-50%, 0%);
  
     
 }
