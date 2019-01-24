@@ -28,7 +28,7 @@ if(flag){
 	%>
 	<script type="text/javascript">
 	<%--window.location.href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-home-page/<%=obj_Login_Bean.getEmail()%>"; --%>
-	window.location.href="http://localhost:8080/Login_Project/user-home-page/<%=obj_Login_Bean.getEmail()%>";
+	window.location.href="http://localhost:8080/Login_Project/user-home-page";
 	</script>
 	<% 
 } else {
