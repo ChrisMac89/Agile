@@ -45,7 +45,7 @@ import java.sql.*;
  * 
  */
 
-@WebServlet("/uploadServlet")
+@WebServlet("/profile/view/uploadServlet")
 @MultipartConfig(maxFileSize = 16177215)
 
 
