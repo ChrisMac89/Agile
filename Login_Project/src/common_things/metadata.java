@@ -2,7 +2,7 @@ package common_things;
 import java.sql.*;
 
 public class metadata {
-	
+	// main for testing purposes
 	/*public static void main(String[] args) 
 	{
 		metadata meta = new metadata();
