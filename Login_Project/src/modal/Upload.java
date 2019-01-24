@@ -20,20 +20,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+
+import common_things.DB_Connection;
+
+//REFACTORED
+//Removed SQL imports as they have been moved to a separate class dealing with database connections
+
+/*
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.*;
+*/
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+//REFACTORED
+//Removed SQL imports as they have been moved to a separate class dealing with database connections
+
 
 /**
  *
@@ -47,11 +51,14 @@ import javax.servlet.http.Part;
 
 public class Upload extends HttpServlet {
 	
-	private String dbURL = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/18agileteam2db";
-    private String dbUser = "18agileteam2";
-    private String dbPass = "8474.at2.4748";	
-    private static final long serialVersionUID = 1L;
-
+	DB_Connection obj_DB_Connection = new DB_Connection();
+	Connection connection = obj_DB_Connection.getConnection();
+	
+	//REFRACTORED 
+	//private String dbURL = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/18agileteam2db";
+    //private String dbUser = "18agileteam2";
+    //private String dbPass = "8474.at2.4748";	
+	//Replaced database connection with database connection object
 	
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
@@ -71,7 +78,7 @@ public class Upload extends HttpServlet {
 	        inputStream = filePart.getInputStream();
     	}
     	
-    	Connection conn = null;
+    	
     	String message = null;
     	
     	try 
@@ -86,11 +93,11 @@ public class Upload extends HttpServlet {
         {
 	            // connects to the database
 	            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-	            conn = DriverManager.getConnection(dbURL, dbUser, dbPass);
+	            
 	 
 	            // constructs SQL statement
 	            String sql = "INSERT INTO exam (file) values (?)";
-	            PreparedStatement statement = conn.prepareStatement(sql);
+	            PreparedStatement statement = connection.prepareStatement(sql);
 	       
 	             
 	            if (inputStream != null) 
@@ -116,10 +123,10 @@ public class Upload extends HttpServlet {
         }
         finally 
         {
-            if (conn != null) {
+            if (connection != null) {
                 // closes the database connection
                 try {
-                    conn.close();
+                    connection.close();
                 } 
                 catch (SQLException ex) 
                 {
@@ -134,7 +141,7 @@ public class Upload extends HttpServlet {
              
             // forwards to the message page
             getServletContext().getRequestDispatcher("/profile/view/Message.jsp").forward(request, response);
-            //../../WebContent/profile/view
+            
         }
     
 }
