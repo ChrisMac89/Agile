@@ -14,7 +14,6 @@
   
    <%@ page import="common_things.metadata" %>
    
-  
   <%
   metadata meta = new metadata();
   meta.connect();

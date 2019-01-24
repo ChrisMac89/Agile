@@ -22,7 +22,6 @@ public class metadata {
 		 title = examCode = modCode = coord = type = level = year = format = query = "";
 	}
 	
-	
 	// method to connect to the database 
 	public void connect() {
 		// prepare sql driver 
