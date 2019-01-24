@@ -50,6 +50,8 @@ public class Upload extends HttpServlet {
 	private String dbURL = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/18agileteam2db";
     private String dbUser = "18agileteam2";
     private String dbPass = "8474.at2.4748";	
+    private static final long serialVersionUID = 1L;
+
 	
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {

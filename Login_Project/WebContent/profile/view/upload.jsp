@@ -1,4 +1,10 @@
 <%@page import="bean.Login_Bean"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="common_things.DB_Connection"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -49,6 +55,59 @@
          <br>
          <input type = "submit" value = "Upload File" />
       </form>
+      
+      
+      
+      <table border="1" width="25%" cellpadding="5">
+            <thead> 
+               <th colspan="3">Uploaded Files</th>        
+            </thead>
+                <tbody>
+                    <tr>
+                        <td><center><b>Id</b></center><td><center><b>Title</b></center></td><td><center><b>File</b></center></td>
+                    </tr>
+                    
+                    <%
+                        try
+                        {
+                                DB_Connection dbconn=new DB_Connection();
+                                Connection myconnection= dbconn.getConnection();
+
+                                String sqlString = "SELECT * FROM exam";
+                                Statement myStatement = myconnection.createStatement();
+                                ResultSet rs=myStatement.executeQuery(sqlString);
+                                
+                                if(!rs.isBeforeFirst())
+                                {
+                                    %>
+                                        <tr>
+                                        <td colspan="3"><center><%out.print("No Files!"); %></center></td>
+                                        </tr>
+                                    <%
+                                }    
+                                
+                                while(rs.next())
+                                {   
+                            %>
+                                    <tr>
+                                        <td><center><%out.print(rs.getString("exam")); %></center></td>
+                                        <td><center><%out.print(rs.getString("stage")); %></center></td>
+                                        <td><center><a href="profile/view/view_file.jsp?examId=<%out.print(rs.getString("examId"));%>">View</a></center></td>
+                                    </tr>
+                            <%
+                                }
+                            %>
+                            
+                </tbody> 
+        </table>
+                            
+                            <%
+                                rs.close();
+                                myStatement.close();
+                                myconnection.close();
+                        }catch(Exception e){e.printStackTrace();}    
+                        
+                    %>
 
 </body>
 </html>
