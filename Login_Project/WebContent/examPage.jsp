@@ -1,12 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.sql.Statement"%>
+<%@ page import="java.sql.Connection"%>
+<%@ page import="java.sql.DriverManager"%>
+
+
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 
 <link href="css/examPage.css" rel="stylesheet">
 <title>Exam Page</title>
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -17,7 +28,8 @@
   <%
   metadata meta = new metadata();
   meta.connect();
-  meta.query("1"); //change this parameter to show results for a different exam (currently displaying metadata for exam with ID 8)
+  String id = request.getParameter("examId");
+  meta.query(id); //change this parameter to show results for a different exam (currently displaying metadata for exam with ID 8)
   %>
   
  <p><img style="display: block; margin-left: auto; margin-right: auto;" src="./resources/logo.png" alt="" width="400" height="137" /></p>
@@ -91,7 +103,9 @@
 			<td><%=meta.getFormat() %></td>
 		</tr>
 	</table>
-             
+	
+<a class="btn btn-primary" href="profile/view/view_file.jsp?examId=<%out.print(meta.getExamCode());%>" role="button">Download Exam</a>     
+        
 <p>Comments:</p>
   <form action="nextPage.jsp" method="POST">
 		<textarea style="width: 467px; height: 177px; "></textarea>
