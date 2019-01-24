@@ -20,7 +20,7 @@
   meta.connect();
   meta.query("8");
   %>
-
+  
  <p><img style="display: block; margin-left: auto; margin-right: auto;" src="./resources/logo.png" alt="" width="400" height="137" /></p>
         <h2 style="color: #5e9ca0; text-align: center;"><span style="color: Black;">Exam Page</span></h2>
         <br>

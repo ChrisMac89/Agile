@@ -19,7 +19,6 @@ public class metadata {
 	public metadata() {
 		 title = examCode = modCode = coord = type = level = year = format = query = "";
 	}
-
 	
 	
 	// method to connect to the database 
