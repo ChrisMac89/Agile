@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The following tutorial was used to assist with the creation of this page.
+ * https://www.codejava.net/coding/upload-files-to-database-servlet-jsp-mysql
  */
 
 package modal;
@@ -42,6 +41,7 @@ import java.sql.*;
 /**
  *
  * @author Andrew Aitken
+ * @author Matthew Foulis
  * 
  */
 
