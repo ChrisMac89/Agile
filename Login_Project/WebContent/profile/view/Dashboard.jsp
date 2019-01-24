@@ -29,7 +29,11 @@
 	    <p><img style="display: block; margin-left: auto; margin-right: auto;" src="./resources/logo.png" alt="" width="400" height="137" /></p>
         <h2 style="color: #5e9ca0; text-align: center;"><span style="color: black;">Dashboard</span></h2>
         <br>
+<<<<<<< HEAD
+        	  <div class="Tablecontainer">
+=======
         	  
+>>>>>>> branch 'UpdatedProject' of https://github.com/ChrisMac89/Agile.git
 <form method="post">
 
 <table style="color:#000000;" border="2">
@@ -55,13 +59,21 @@
    %>
        <tr><td><%out.println(rs.getString("resitExam")); %></td>
        <td>       
+<<<<<<< HEAD
+       		<a href="http://localhost:8080/<%=rs.getString("exam") %>">
+=======
        		<a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/<%=rs.getString("exam") %>">
+>>>>>>> branch 'UpdatedProject' of https://github.com/ChrisMac89/Agile.git
        			<%out.println(rs.getString("exam")); %>
        		</a>
        	</td>
        			
        <td>
+<<<<<<< HEAD
+       		<a href="http://localhost:8080/<%=rs.getString("solution") %>">
+=======
        		<a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/<%=rs.getString("solution") %>">
+>>>>>>> branch 'UpdatedProject' of https://github.com/ChrisMac89/Agile.git
        			<%out.println(rs.getString("solution")); %>
        		</a>
         </td>
@@ -86,6 +98,7 @@
    %>
    </table>
 </form>`
+</div>
 </div>
 
 

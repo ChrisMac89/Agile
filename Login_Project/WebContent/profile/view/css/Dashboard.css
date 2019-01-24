@@ -9,6 +9,7 @@ body {
   -o-background-size: cover;
   color: #black;
   text-align:left;
+  float:none;'
  
 }
 
@@ -22,7 +23,7 @@ body {
     padding: 2%;
     color: black;
     background-color: #ffffff;
- 
+ float:none;
     
 }
 
@@ -31,11 +32,12 @@ body {
     margin-left: 8%;
     margin-right: 8%;
     position: relative;
-    padding-left:1%;
     color: black;
     background-color: #ffffff;
- 
-    
+	float:none;
+    top: 50%;
+    left: 50%;
+  	transform: translate(-50%, 0%);
 }
 
 /* Bottom left text */
@@ -68,7 +70,7 @@ body {
 
 /* Centered text */
 .centered {
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
