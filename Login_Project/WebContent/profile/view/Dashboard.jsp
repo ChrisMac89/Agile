@@ -10,11 +10,25 @@
 
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   
 <title>University of Dundee Exam Review Dashboard</title>
+	<!-- CSS for styling -->
+ 	 <link href="css/Dashboard.css" rel="stylesheet">
+	<!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
 	
+	    <div class="container">
+	    
+	    <p><img style="display: block; margin-left: auto; margin-right: auto;" src="./resources/logo.png" alt="" width="400" height="137" /></p>
+        <h2 style="color: #5e9ca0; text-align: center;"><span style="color: black;">Dashboard</span></h2>
+        <br>
+        
 <form method="post">
 
 <table border="2">
@@ -71,6 +85,10 @@
    %>
    </table>
 </form>`
+</div>
 
+<!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
