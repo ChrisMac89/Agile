@@ -124,8 +124,12 @@
    %>
 				</table>
 			</form>
-			`
+			<br><br>
+			<a class="btn btn-primary" href="http://localhost:8080/Login_Project/profile/view/createExam.jsp">Upload New Exam</a>   
+			<a class="btn btn-danger float-right" href="http://localhost:8080/Login_Project/Signoutcontroller">Log Out</a> 
 		</div>
+		  
+		
 	</div>
 
 

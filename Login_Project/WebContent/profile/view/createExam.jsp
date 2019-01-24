@@ -14,16 +14,17 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="common_things.DB_Connection"%>
-
+<html>
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
 <title>Create Exam</title>
 
-<link href="./././css/Dashboard.css" rel="stylesheet">
+	<link href="././css/Dashboard.css" rel="stylesheet">
 	<!-- Bootstrap core CSS -->
-	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="././vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -53,8 +54,37 @@
 		<h2 style="color: #5e9ca0; text-align: center;">
 			<span style="color: black;">Create Exam</span>
 		</h2>
-		<br>
 		
+		<div class="Tablecontainer">
+		<br>
+			Exam Title:<br>
+			<input style="width: 312px; ">
+			<br>
+			Exam ID:<br>
+			<input style="width: 312px; ">
+			<br>
+			Exam Type:<br>
+			<input style="width: 312px; ">
+			<br>
+			Exam Type:<br>
+			<input style="width: 312px; ">
+			<br>
+			Module Code:<br>
+			<input style="width: 312px; ">
+			<br>
+			Module Coordinator:<br>
+			<input style="width: 312px; ">
+			<br>
+			Level:<br>
+			<input style="width: 312px; ">
+			<br>
+			Year:<br>
+			<input style="width: 312px; ">
+			<br>
+			Format:<br>
+			<input style="width: 312px; ">
+		
+		<br>
 		<h3>File Upload:</h3>
       Select a file to upload: <br />
       <form action = "uploadServlet" method = "post"
@@ -64,11 +94,14 @@
          <br>
          <input type = "submit" value = "Upload File" />
       </form>
+      
+      </div>
+		<a class="btn btn-danger float-right" href="http://localhost:8080/Login_Project/user-home-page">Go Back</a> 
 		
-		
-		
+		<br>
+		<br>
 <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="././vendor/jquery/jquery.min.js"></script>
+    <script src="././vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

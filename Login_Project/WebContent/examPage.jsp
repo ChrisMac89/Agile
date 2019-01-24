@@ -17,7 +17,7 @@
 
 <link href="css/examPage.css" rel="stylesheet">
 <title>Exam Page</title>
-<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="./././vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -113,8 +113,12 @@
 		<input type="checkbox"> Mark this as complete
 		<br><br>
 		<input type="submit" value = "Submit">
+		
+		<a class="btn btn-danger float-right" href="http://localhost:8080/Login_Project/user-home-page">Go Back</a> 
 	</form>
+	
 	</div>
+	
 	  </div>
 </body>
 </html>
