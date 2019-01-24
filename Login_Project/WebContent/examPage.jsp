@@ -11,7 +11,16 @@
 <body>
 
   <div class="container">
-
+  
+   <%@ page import="common_things.metadata" %>
+   
+  
+  <%
+  metadata meta = new metadata();
+  meta.connect();
+  meta.query("8");
+  %>
+  
  <p><img style="display: block; margin-left: auto; margin-right: auto;" src="./resources/logo.png" alt="" width="400" height="137" /></p>
         <h2 style="color: #5e9ca0; text-align: center;"><span style="color: Black;">Exam Page</span></h2>
         <br>
@@ -23,7 +32,7 @@
                     <i class=></i>
                     Exam Title:
                 </p></td>
-			<td style="width: 294px;">Cell information Here</td>
+			<td style="width: 294px;"><%=meta.getTitle() %></td>
 		</tr>
 		
 		<tr>
@@ -31,7 +40,7 @@
                     <i class=></i>
                   	Exam ID:
                 </p></td>
-			<td>Bla Bla</td>
+			<td><%=meta.getExamCode() %></td>
 		</tr>
 		
 		<tr>
@@ -39,7 +48,7 @@
                     <i class=></i>
                     Exam Type:
                 </p>   </td>
-			<td>Cell</td>
+			<td><%=meta.getType() %></td>
 		</tr>
 		
 		<tr>
@@ -47,7 +56,7 @@
                     <i  class=></i>
                     Module Code:
                 </p>   </td>
-			<td>Cell</td>
+			<td><%=meta.getModCode() %></td>
 		</tr>
 		
 		<tr>
@@ -55,7 +64,7 @@
                     <i class=></i>
                     Module Coordinator:
                 </p>    </td>
-			<td>Cell</td>
+			<td><%=meta.getCoord() %></td>
 		</tr>
 		
 		<tr>
@@ -63,7 +72,7 @@
                     <i class=></i>
                     Level:
                 </p> </td>
-			<td>Cell</td>
+			<td><%=meta.getLevel() %></td>
 		</tr>
 		
 		<tr>
@@ -71,16 +80,16 @@
                     <i class=></i>
                     Year:
                 </p>   </td>
-			<td>Cell</td>
+			<td><%=meta.getYear() %></td>
 		</tr>
 		
 		<tr>
 			<td>   <p>
                     <i class=></i>
-                    Stage:
+                    Format:
                 </p>                                         
 				 </td>
-			<td>Cell</td>
+			<td><%=meta.getFormat() %></td>
 		</tr>
 	</table>
              
@@ -93,6 +102,6 @@
 		<input type="submit" value = "Submit">
 	</form>
 	</div>
-	  <div>
+	  </div>
 </body>
 </html>
