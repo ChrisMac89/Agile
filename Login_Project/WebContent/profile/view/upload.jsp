@@ -43,7 +43,7 @@
       Select a file to upload: <br />
       <form action = "uploadServlet" method = "post"
          enctype = "multipart/form-data">
-         <input type = "file" name = "photo" size = "50" />
+         <input type = "file" name = "file" size = "50" />
          <br />
          <br>
          <input type = "submit" value = "Upload File" />
