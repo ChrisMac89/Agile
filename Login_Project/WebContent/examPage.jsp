@@ -106,7 +106,47 @@
 	
 <a class="btn btn-primary" href="profile/view/view_file.jsp?examId=<%out.print(meta.getExamCode());%>" target="_blank" role="button">Download Exam</a>     
         
-<p>Comments:</p>
+        <br><br><br>
+        <p>Comments:</p>
+<%
+   try
+   {
+       Class.forName("com.mysql.jdbc.Driver");
+       String url="jdbc:mysql://silva.computing.dundee.ac.uk:3306/18agileteam2db";
+       String username="18agileteam2";
+       String password="8474.at2.4748";
+       String query="SELECT message, commenter, position FROM comments WHERE examId = " + id;
+       Connection conn=DriverManager.getConnection(url, username, password);
+       Statement stmt=conn.createStatement();
+       ResultSet rs=stmt.executeQuery(query);
+       while(rs.next())
+       {
+    	%>
+		<br>
+		<p>
+			<%	out.println(rs.getString("message"));	%>
+		</p>
+		
+		<p>
+			<%	out.println("Comment posted by: " + rs.getString("commenter") + " " + rs.getString("position"));	%>
+		</p>
+			<br>		
+     <%  
+     }
+  
+        rs.close();
+        stmt.close();
+        conn.close();
+   }
+   catch(Exception e)
+   {
+        e.printStackTrace();
+   }
+   %>        
+        
+        
+        <p>Write a comment:</p>
+
   <form action="nextPage.jsp" method="POST">
 		<textarea style="width: 467px; height: 177px; "></textarea>
 		<br><br>
