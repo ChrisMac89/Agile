@@ -49,17 +49,6 @@ public class metadataTest {
         
     }
 
-    /**
-     * Test of query method, of class metadata.
-     */
-    @Test
-    public void testQuery() {
-         String id = "test";
-        metadata metadata = new metadata();
-        
-        boolean pass = metadata.query(id);
-       assertTrue(pass);
-    }
 
     /**
      * Test of getTitle method, of class metadata.
