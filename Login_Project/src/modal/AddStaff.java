@@ -41,6 +41,7 @@ public class AddStaff extends HttpServlet {
 	
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
+    	
     	System.out.println("firstName: " + request.getParameter("firstName"));
     	System.out.println("firstName: " + request.getParameter("surname"));
     	System.out.println("firstName: " + request.getParameter("staffID"));
