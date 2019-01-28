@@ -60,52 +60,40 @@
 				src="./resources/logo.png" alt="" width="400" height="137" />
 		</p>
 		<h2 style="color: #5e9ca0; text-align: center;">
-			<span style="color: black;">Exam Management</span>
+			<span style="color: black;">Manage Staff</span>
 		</h2>
+		<br>
+		<h3>Register Staff</h3>
+		<br>
+		<form action="addStaffServlet" method="post"
+				enctype="multipart/form-data">
+				
+				<br> First Name: <br><input type="text" name="firstName" style="width: 312px;"/> <br> 
+				<br> Surname: <br> <input type="text" name="surname" style="width: 312px;"/> <br>
+				<br> Staff ID:<br> <input type="text" name="staffID" style="width: 312px;"/> <br>
+				<br>
+				<p>Position:</p>
+				<select name="position">
+					<option value="">Select an option</option>
+  					<option value="Exam Setter">Exam Setter</option>
+  					<option value="Internal Moderator">Internal Moderator</option>
+  					<option value="Vetting Committee">Vetting Committee</option>
+  					<option value="External Examiner">External Examiner</option>
+				</select>
+				<br>
+				<br>
+					<input type="submit" value="Add Staff" />
+			</form>
+		
+		<br>
+		<h3>Staff List</h3>
 		<br>
 
 
-
-		<div class="Tablecontainer">
-		
-			<h3>File Upload:</h3>
-			Select a file to upload: <br />
-			<form action="uploadServlet" method="post"
-				enctype="multipart/form-data">
-				
-				<br> Exam Title:<br> <input type="text" name="examTitle" style="width: 312px;"/> <br>
-				<br> Exam ID:<br> <input type="text" name="examID" style="width: 312px;"/> <br>
-				<br> Exam Type:<br> <input type="text" name="examType" style="width: 312px;"/> <br>
-				<br> Module Code:<br> <input type="text" name="moduleCode" style="width: 312px;"/> <br>
-				<br> Module Coordinator:<br> <input type="text" name="moduleCoordinator" style="width: 312px;"/> <br>
-				<br> Level:<br> <input type="text" name="level" style="width: 312px;"/> <br>
-				<br> Year:<br> <input type="text" name="year" style="width: 312px;"/> <br>
-				<br> Format:<br> <input type="text" name="format" style="width: 312px;"/> <br>
-				<br>
-				<input type="file" name="file" size="50" /> <br /> <br> 
-				<input type="submit" value="Create Exam" />
-			</form>
-			<a class="btn btn-danger float-right"
-				href="http://localhost:8080/Login_Project/user-home-page">Go
-				Back</a>
-		</div>
-					<%
-   try
-   {
-		
-   }
-   catch(Exception e)
-   {
-        e.printStackTrace();
-   }
-   %>
-				</table>
-			</form>
-
-		</div>
-
-
 	</div>
+
+
+
 
 
 	<!-- Bootstrap core JavaScript -->
