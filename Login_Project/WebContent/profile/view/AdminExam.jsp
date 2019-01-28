@@ -64,17 +64,10 @@
 		</h2>
 		<br>
 
-		<div class="Tablecontainer">
 
-
-
-			<form method="post">
-
-				<h2 style="color: #5e9ca0; text-align: center;">
-			<span style="color: black;">Create Exam</span>
-		</h2>
 
 		<div class="Tablecontainer">
+		
 			<h3>File Upload:</h3>
 			Select a file to upload: <br />
 			<form action="uploadServlet" method="post"
