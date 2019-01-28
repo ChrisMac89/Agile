@@ -66,6 +66,8 @@ public class Upload extends HttpServlet {
     
     	InputStream inputStream = null;
     	
+    	//String examTitle = request.getParameter("examTitle");
+    	//System.out.println("examTitle;"+ examTitle);
     	Part filePart = request.getPart("file");
     	if (filePart != null)  
     	{
@@ -96,10 +98,19 @@ public class Upload extends HttpServlet {
 	            
 	 
 	            // constructs SQL statement
-	            String sql = "INSERT INTO exam (file) values (?)";
+	            String sql = "INSERT INTO exam (file, examTitle, examId, examType, moduleId, moduleCoordinator, examLevel, examYear, examFormat) values (?,?,?,?,?,?,?,?,?)";
+	            //,?,?,?,?,?,?,?
+	            //, examId, examType, moduleId, moduleCoordinator, examLevel, examYear, examFormat
 	            PreparedStatement statement = connection.prepareStatement(sql);
-	       
-	             
+	            statement.setString(2, request.getParameter("examTitle"));
+	            statement.setString(3, request.getParameter("examId"));
+	            statement.setString(4, request.getParameter("examType"));
+	            statement.setString(5, request.getParameter("moduleId"));
+	            statement.setString(6, request.getParameter("moduleCoordinator"));
+	            statement.setString(7, request.getParameter("examLevel"));
+	            statement.setString(8, request.getParameter("examYear"));
+	            statement.setString(9, request.getParameter("examFormat"));
+	            
 	            if (inputStream != null) 
 	            {
 	                // fetches input stream of the upload file for the blob column
