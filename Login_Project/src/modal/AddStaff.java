@@ -22,21 +22,6 @@ import javax.servlet.http.Part;
 
 import common_things.DB_Connection;
 
-//REFACTORED
-//Removed SQL imports as they have been moved to a separate class dealing with database connections
-
-/*
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.*;
-*/
-
-//REFACTORED
-//Removed SQL imports as they have been moved to a separate class dealing with database connections
-
 
 /**
  *
@@ -45,41 +30,22 @@ import java.sql.*;
  * 
  */
 
-@WebServlet("/profile/view/uploadServlet")
-@MultipartConfig(maxFileSize = 16177215)
+@WebServlet("/profile/view/addStaffServlet")
 
 
-public class Upload extends HttpServlet {
+public class AddStaff extends HttpServlet {
 	
 	DB_Connection obj_DB_Connection = new DB_Connection();
 	Connection connection = obj_DB_Connection.getConnection();
-	
-	//REFRACTORED 
-	//private String dbURL = "jdbc:mysql://silva.computing.dundee.ac.uk:3306/18agileteam2db";
-    //private String dbUser = "18agileteam2";
-    //private String dbPass = "8474.at2.4748";	
-	//Replaced database connection with database connection object
+
 	
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
     	
-    
-    	InputStream inputStream = null;
-    	
-    	//String examTitle = request.getParameter("examTitle");
-    	//System.out.println("examTitle;"+ examTitle);
-    	Part filePart = request.getPart("file");
-    	if (filePart != null)  
-    	{
-	        // prints out some information for debugging
-	        //System.out.println(filePart.getName());
-	        //System.out.println(filePart.getSize());
-	        //System.out.println(filePart.getContentType());
-	         
-	        // obtains input stream of the upload file
-	        inputStream = filePart.getInputStream();
-    	}
-    	
+    	System.out.println("firstName: " + request.getParameter("firstName"));
+    	System.out.println("firstName: " + request.getParameter("surname"));
+    	System.out.println("firstName: " + request.getParameter("staffID"));
+    	System.out.println("firstName: " + request.getParameter("position"));
     	
     	String message = null;
     	
@@ -98,24 +64,15 @@ public class Upload extends HttpServlet {
 	            
 	 
 	            // constructs SQL statement
-	            String sql = "INSERT INTO exam (file, examTitle, examId, examType, moduleId, moduleCoordinator, examLevel, examYear, examFormat) values (?,?,?,?,?,?,?,?,?)";
-	            //,?,?,?,?,?,?,?
-	            //, examId, examType, moduleId, moduleCoordinator, examLevel, examYear, examFormat
+	            String sql = "INSERT INTO Staff (firstName, lastName, staffId, position) values (?, ?, ?, ?)";
+
 	            PreparedStatement statement = connection.prepareStatement(sql);
-	            statement.setString(2, request.getParameter("examTitle"));
-	            statement.setString(3, request.getParameter("examId"));
-	            statement.setString(4, request.getParameter("examType"));
-	            statement.setString(5, request.getParameter("moduleId"));
-	            statement.setString(6, request.getParameter("moduleCoordinator"));
-	            statement.setString(7, request.getParameter("examLevel"));
-	            statement.setString(8, request.getParameter("examYear"));
-	            statement.setString(9, request.getParameter("examFormat"));
-	            
-	            if (inputStream != null) 
-	            {
-	                // fetches input stream of the upload file for the blob column
-	                statement.setBlob(1, inputStream);
-	            }
+	            statement.setString(1, request.getParameter("firstName"));
+	            statement.setString(2, request.getParameter("surname"));
+	            statement.setString(3, request.getParameter("staffID"));
+	            statement.setString(4, request.getParameter("position"));
+
+
 	 
 	            // sends the statement to the database server
 	            int row = statement.executeUpdate();
