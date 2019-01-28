@@ -14,7 +14,7 @@
 <%@page import="java.util.List"%>
 <%@page import="common_things.DB_Connection"%>
 
-<!-- Code Below reviewed by Andrew -->>
+<!-- Code Below reviewed by Andrew -->
 
 <html>
 <head>

@@ -57,21 +57,24 @@
 		</h2>
 
 		<div class="Tablecontainer">
-			<br> Exam Title:<br> <input style="width: 312px;">
-			<br> Exam ID:<br> <input style="width: 312px;"> <br>
-			Exam Type:<br> <input style="width: 312px;"> <br>
-			Exam Type:<br> <input style="width: 312px;"> <br>
-			Module Code:<br> <input style="width: 312px;"> <br>
-			Module Coordinator:<br> <input style="width: 312px;"> <br>
-			Level:<br> <input style="width: 312px;"> <br> Year:<br>
-			<input style="width: 312px;"> <br> Format:<br> <input
-				style="width: 312px;"> <br>
+		
+				
 			<h3>File Upload:</h3>
 			Select a file to upload: <br />
 			<form action="uploadServlet" method="post"
 				enctype="multipart/form-data">
+				
+				<br> Exam Title:<br> <input type="text" name="examTitle" style="width: 312px;"/> <br>
+				<br> Exam ID:<br> <input type="text" name="examID" style="width: 312px;"/> <br>
+				<br> Exam Type:<br> <input type="text" name="examType" style="width: 312px;"/> <br>
+				<br> Module Code:<br> <input type="text" name="moduleCode" style="width: 312px;"/> <br>
+				<br> Module Coordinator:<br> <input type="text" name="moduleCoordinator" style="width: 312px;"/> <br>
+				<br> Level:<br> <input type="text" name="level" style="width: 312px;"/> <br>
+				<br> Year:<br> <input type="text" name="year" style="width: 312px;"/> <br>
+				<br> Format:<br> <input type="text" name="format" style="width: 312px;"/> <br>
+				<br>
 				<input type="file" name="file" size="50" /> <br /> <br> <input
-					type="submit" value="Upload File" />
+					type="submit" value="Create Exam" />
 			</form>
 			<a class="btn btn-danger float-right"
 				href="http://localhost:8080/Login_Project/user-home-page">Go
