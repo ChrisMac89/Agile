@@ -15,14 +15,16 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-<link href="css/examPage.css" rel="stylesheet">
+<link href="profile/view/css/archives.css" rel="stylesheet">
 <title>Exam Page</title>
 <link href="./././vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
+	
+	<%@ include file="/profile/view/navbar.jsp" %>
 </head>
 <body>
 
-	<div class="container">
+	<div class="bodycontainer">
 
 		<%@ page import="common_things.metadata"%>
 
@@ -33,10 +35,7 @@
   meta.query(id); //change this parameter to show results for a different exam (currently displaying metadata for exam with ID 8)
   %>
 
-		<p>
-			<img style="display: block; margin-left: auto; margin-right: auto;"
-				src="./resources/logo.png" alt="" width="400" height="137" />
-		</p>
+		
 		<h2 style="color: #5e9ca0; text-align: center;">
 			<span style="color: Black;">Exam Page</span>
 		</h2>

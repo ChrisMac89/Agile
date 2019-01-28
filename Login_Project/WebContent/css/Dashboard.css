@@ -1,5 +1,4 @@
 @charset "ISO-8859-1";
-@charset "ISO-8859-1";
 
 body {
   background: url(../resources/qmb.jpg) no-repeat center center fixed;
@@ -15,7 +14,7 @@ body {
 
 
 /* Container holding the image and the text */
-.container {
+.bodycontainer {
     margin-top: 7%;
     margin-left: 20%;
     margin-right: 20%;
@@ -78,3 +77,14 @@ float:none;
 }
 
 
+/* Sortable tables */
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+}
+
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+    content: " \25B4\25BE" 
+}

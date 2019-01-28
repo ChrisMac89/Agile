@@ -23,11 +23,13 @@
 
 <title>Create Exam</title>
 
-<link href="./././css/Dashboard.css" rel="stylesheet">
+
+<link href="css/archives.css" rel="stylesheet">
 <!-- Bootstrap core CSS -->
 <link href="./././vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 
+<%@ include file="navbar.jsp" %>
 </head>
 <body>
 
@@ -45,13 +47,10 @@
 		}
 	%>
 
-	<div class="container">
+	<div class="bodycontainer">
 
 
-		<p>
-			<img style="display: block; margin-left: auto; margin-right: auto;"
-				src="./resources/logo.png" alt="" width="400" height="137" />
-		</p>
+		
 		<h2 style="color: #5e9ca0; text-align: center;">
 			<span style="color: black;">Create Exam</span>
 		</h2>

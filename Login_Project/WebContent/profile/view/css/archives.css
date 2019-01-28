@@ -12,10 +12,30 @@ body {
  
 }
 
+#mainNav {
+    background-color: #4365e2!important;
+    
+}
+.nav-link {
+	color:white!important;
+	}
+
+.nav-link:hover {
+  color: #e0e0e0!important;
+}
 
 
+.navbar-brand {
+ 
+    color: white;
+}
+
+.navbar-brand:hover {
+  color: #e0e0e0!important;
+}
+	
 /* Container holding the image and the text */
-.container {
+.bodycontainer {
     margin-top: 7%;
     margin-left: 20%;
     margin-right: 20%;
@@ -85,7 +105,5 @@ table.sortable thead {
     cursor: default;
 }
 
-table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
-    content: " \25B4\25BE" 
-}
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {content: "\25B4\25BE"!important ;}
 

@@ -8,7 +8,6 @@
 <%@ page import="java.sql.Statement"%>
 <%@ page import="java.sql.Connection"%>
 <%@ page import="java.sql.DriverManager"%>
-
 <%@page import="bean.Login_Bean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -17,6 +16,7 @@
 <!-- Code Below reviewed by Andrew -->
 
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport"
@@ -24,16 +24,18 @@
 
 
 <title>University of Dundee Exam Review Dashboard</title>
-
 <!-- CSS for styling -->
-<link href="profile/view/css/archives.css" rel="stylesheet">
-
+<link href="css/archives.css" rel="stylesheet">
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- JS for making tables sortable -->
+<script src="vendor/js/sorttable.js"></script>
 
-<%@ include file="navbar.jsp" %>
+<!-- Navigation -->
+    <%@ include file="navbar.jsp" %>
 </head>
 <body>
+
 	<%
 	Login_Bean obj_Login_Bean = (Login_Bean)session.getAttribute("user_session");
 	if(obj_Login_Bean == null){
@@ -51,7 +53,7 @@
 
 		
 		<h2 style="color: #5e9ca0; text-align: center;">
-			<span style="color: black;">Dashboard</span>
+			<span style="color: black;">Archives</span>
 		</h2>
 		<br>
 
@@ -61,12 +63,13 @@
 
 			<form method="post">
 
-				<table style="color: #000000;" border="2">
+				<table  class="sortable" style="color: #000000;" border="2">
 					<tr>
-						<td>Resit</td>
-						<td>Exam</td>
-						<td>Solution</td>
-						<td>Stage</td>
+						<th>Module Code</th>
+						<th>Resit</th>
+						<th>Exam</th>
+						<th>Solution</th>
+						<th>Exam Year</th>
 					</tr>
 					<%
    try
@@ -75,7 +78,7 @@
        String url="jdbc:mysql://silva.computing.dundee.ac.uk:3306/18agileteam2db";
        String username="18agileteam2";
        String password="8474.at2.4748";
-       String query="SELECT exam, examId, solution, stage, resitExam FROM exam";
+       String query="SELECT exam, examId, solution, moduleId, resitExam, examYear FROM exam";
        Connection conn=DriverManager.getConnection(url, username, password);
        Statement stmt=conn.createStatement();
        ResultSet rs=stmt.executeQuery(query);
@@ -83,6 +86,10 @@
        {
    %>
 					<tr>
+					<td>
+							<%out.println(rs.getString("moduleId")); %>
+						</td>
+						
 						<td>
 							<%out.println(rs.getString("resitExam")); %>
 						</td>
@@ -103,18 +110,20 @@
 
 								<%out.println(rs.getString("solution")); %>
 						</a></td>
-						<td>
-							<%out.println(rs.getString("stage")); %>
+						
+					<td>
+							<%out.println(rs.getString("examYear")); %>
 						</td>
 					</tr>
-
 					<%
        }
-   %>
+   %>				
+   					<%=rs.getString("moduleId") %>
 					<%=rs.getString("resitExam") %>
 					<td><%=rs.getString("exam") %></td>
 					<td><%=rs.getString("solution") %></td>
-					<td><%=rs.getString("stage") %></td>
+				
+					<td><%=rs.getString("examYear") %></td>
 					<%
         rs.close();
         stmt.close();
@@ -126,13 +135,10 @@
    }
    %>
 				</table>
+				<a class="btn btn-danger float-right"href="http://localhost:8080/Login_Project/profile/view/upload.jsp">Go Back</a>
 			</form>
 			<br>
-			<br> <a class="btn btn-primary"
-				href="http://localhost:8080/Login_Project/profile/view/createExam.jsp">Upload
-				New Exam</a> <a class="btn btn-danger float-right"
-				href="http://localhost:8080/Login_Project/Signoutcontroller">Log
-				Out</a>
+			
 		</div>
 
 
