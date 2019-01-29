@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 
+<%@page import="bean.Login_Bean"%>
 <%@ page import="java.sql.ResultSet"%>
 <%@ page import="java.sql.Statement"%>
 <%@ page import="java.sql.Connection"%>
@@ -23,6 +24,16 @@
 	<%@ include file="/profile/view/navbar.jsp" %>
 </head>
 <body>
+	<%
+	Login_Bean obj_Login_Bean = (Login_Bean)session.getAttribute("admin_session");
+	if(!(obj_Login_Bean == null)){
+		
+		System.out.println("Secret admin options");
+		
+	}
+
+		
+		%>
 <div class="row-fluid">
 	<div class="bodycontainer">
 
@@ -140,6 +151,7 @@
 			</p>
 </div>
 			<br>
+			
 			<%  
      }
   
