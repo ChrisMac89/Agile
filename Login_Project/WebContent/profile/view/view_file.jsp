@@ -52,7 +52,7 @@
                 
                 if (rs.next()) 
                 {
-                	
+                	 
                     file = rs.getBlob("file");
                     fileData = file.getBytes(1,(int)file.length());
                 } else 
