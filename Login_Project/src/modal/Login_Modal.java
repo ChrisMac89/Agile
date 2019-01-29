@@ -16,17 +16,18 @@ public class Login_Modal {
 		DB_Connection obj_DB_Connection = new DB_Connection();
 		Connection connection = obj_DB_Connection.getConnection(); 
 		
-		PreparedStatement ps = null;
+		PreparedStatement ps = null; 
 		ResultSet rs = null;
 		
 
 		
 		try {
 			
-			String q = "select * from login where staffID=? and password=?";
+			String q = "select * from login where staffID=? and password=? and position=?";
 			ps = connection.prepareStatement(q);
 			ps.setString(1, obj_Login_Bean.getEmail());
 			ps.setString(2, obj_Login_Bean.getPassword());
+			ps.setString(3, obj_Login_Bean.getPosition());
 			rs = ps.executeQuery();
 			
 			if(rs.next())
