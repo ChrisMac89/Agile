@@ -4,7 +4,7 @@ public class Login_Bean {
 
 	private String email;
 	private String password;
-	private String position;
+	private String position; 
 	
 	public String getPosition() {
 		return position;
