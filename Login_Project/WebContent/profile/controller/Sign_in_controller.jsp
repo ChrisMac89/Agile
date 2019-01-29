@@ -25,7 +25,17 @@ Login_Modal obj_Login_Modal = new Login_Modal();
 
 boolean flag = obj_Login_Modal.check_user_name(obj_Login_Bean);
 
-if(flag){
+if(flag && (obj_Login_Bean.getPosition().equals("Admin"))){
+	
+	session.setAttribute("admin_session", obj_Login_Bean); 
+	%>
+	<script type="text/javascript">
+	<%--window.location.href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-home-page/<%=obj_Login_Bean.getEmail()%>"; --%>
+	window.location.href="http://localhost:8080/Login_Project/profile/view/AdminDashBoard.jsp";
+	</script>
+	<% 
+} 
+if(flag && (obj_Login_Bean.getPosition().equals("ExternalModerator"))){
 	
 	session.setAttribute("user_session", obj_Login_Bean); 
 	%>
@@ -34,7 +44,43 @@ if(flag){
 	window.location.href="http://localhost:8080/Login_Project/user-home-page";
 	</script>
 	<% 
-} else {
+} if(flag && (obj_Login_Bean.getPosition().equals("ExamCommitee"))){
+	
+	session.setAttribute("user_session", obj_Login_Bean); 
+	%>
+	<script type="text/javascript">
+	<%--window.location.href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-home-page/<%=obj_Login_Bean.getEmail()%>"; --%>
+	window.location.href="http://localhost:8080/Login_Project/user-home-page";
+	</script>
+	<% 
+}if(flag && (obj_Login_Bean.getPosition().equals("InternalModerator"))){
+	
+	session.setAttribute("user_session", obj_Login_Bean); 
+	%>
+	<script type="text/javascript">
+	<%--window.location.href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-home-page/<%=obj_Login_Bean.getEmail()%>"; --%>
+	window.location.href="http://localhost:8080/Login_Project/user-home-page";
+	</script>
+	<% 
+}if(flag && (obj_Login_Bean.getPosition().equals("TeachingStaff"))){
+	
+	session.setAttribute("user_session", obj_Login_Bean); 
+	%>
+	<script type="text/javascript">
+	<%--window.location.href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-home-page/<%=obj_Login_Bean.getEmail()%>"; --%>
+	window.location.href="http://localhost:8080/Login_Project/user-home-page";
+	</script>
+	<% 
+}if(flag && (obj_Login_Bean.getPosition().equals("SchoolOffice"))){
+	
+	session.setAttribute("user_session", obj_Login_Bean); 
+	%>
+	<script type="text/javascript">
+	<%--window.location.href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-home-page/<%=obj_Login_Bean.getEmail()%>"; --%>
+	window.location.href="http://localhost:8080/Login_Project/user-home-page";
+	</script>
+	<% 
+}else {
 
 
 	 

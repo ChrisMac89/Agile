@@ -35,7 +35,7 @@
 </head>
 <body>
 	<%
-	Login_Bean obj_Login_Bean = (Login_Bean)session.getAttribute("user_session");
+	Login_Bean obj_Login_Bean = (Login_Bean)session.getAttribute("admin_session");
 	if(obj_Login_Bean == null){
 		session.setAttribute("login_message", "Please Login First");
 		
