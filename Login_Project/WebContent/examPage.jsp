@@ -113,7 +113,7 @@
 				target="_blank" role="button">Download Exam</a> <br>
 			<br>
 			<br>
-			<p>Comments:</p>
+			<p><b>Comments:</b></p>
 			<%
    try
    {
