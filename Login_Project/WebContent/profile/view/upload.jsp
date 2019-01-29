@@ -46,6 +46,8 @@
 	<% 
 	}
 %>
+
+
 	<div class="bodycontainer">
 
 
@@ -66,9 +68,12 @@
 						<td>Resit</td>
 						<td>Exam</td>
 						<td>Solution</td>
-						<td>Stage</td>
+						<td>Status</td>
+						
 					</tr>
-					<%
+					
+				
+<%
    try
    {
        Class.forName("com.mysql.jdbc.Driver");
@@ -82,6 +87,47 @@
        while(rs.next())
        {
    %>
+   
+		<%//out.println(rs.getString("stage")); 
+		
+		String myColor = rs.getString("stage");
+		//out.println(myColor);
+		%>
+  <%
+ 
+ 
+String newColor = "Red";
+String progressColor ="Yellow";
+String completedColor ="Green";
+//String myColor = request.getParameter("stage"); 
+//String myColor ="";
+String level = rs.getString("stage");
+ 
+if (level.equals("New"))
+{
+
+	myColor = newColor;
+	System.out.println(rs.getString("stage"));
+} else if (level.equals("In-Progress"))
+{
+	myColor = progressColor;
+	System.out.println(rs.getString("stage"));
+
+}
+else {
+	
+	myColor = completedColor;
+	System.out.println(rs.getString("stage"));
+}
+	
+
+
+
+%>
+ 
+
+
+
 					<tr>
 						<td>
 							<%out.println(rs.getString("resitExam")); %>
@@ -103,7 +149,8 @@
 
 								<%out.println(rs.getString("solution")); %>
 						</a></td>
-						<td>
+					
+						<td style="background-color:<%=myColor %>;">
 							<%out.println(rs.getString("stage")); %>
 						</td>
 					</tr>
@@ -125,6 +172,8 @@
         e.printStackTrace();
    }
    %>
+   
+
 				</table>
 			</form>
 			<br>
