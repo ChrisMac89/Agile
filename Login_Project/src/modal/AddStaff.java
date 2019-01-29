@@ -43,9 +43,9 @@ public class AddStaff extends HttpServlet {
     {
     	
     	System.out.println("firstName: " + request.getParameter("firstName"));
-    	System.out.println("firstName: " + request.getParameter("surname"));
-    	System.out.println("firstName: " + request.getParameter("staffID"));
-    	System.out.println("firstName: " + request.getParameter("position"));
+    	System.out.println("Surname: " + request.getParameter("surname"));
+    	System.out.println("staffID: " + request.getParameter("staffID"));
+    	System.out.println("position: " + request.getParameter("position"));
     	
     	String message = null;
     	
@@ -64,7 +64,7 @@ public class AddStaff extends HttpServlet {
 	            
 	 
 	            // constructs SQL statement
-	            String sql = "INSERT INTO Staff (firstName, lastName, staffId, position) values (?, ?, ?, ?)";
+	            String sql = "INSERT INTO staff (firstName, lastName, staffId, position) values (?, ?, ?, ?)";
 
 	            PreparedStatement statement = connection.prepareStatement(sql);
 	            statement.setString(1, request.getParameter("firstName"));
