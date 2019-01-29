@@ -48,6 +48,7 @@
 	<% 
 	}
 %>
+<div class="row-fluid">
 	<div class="bodycontainer">
 
 
@@ -59,7 +60,7 @@
 
 		<div class="Tablecontainer">
 
-
+<div class="cc">
 
 			<form method="post">
 
@@ -135,13 +136,14 @@
    }
    %>
 				</table>
-				<a class="btn btn-danger float-right"href="http://localhost:8080/Login_Project/profile/view/upload.jsp">Go Back</a>
+				
 			</form>
-			<br>
-			
+			</div>
+			<br><br>
+			<a class="btn btn-danger float-right"href="http://localhost:8080/Login_Project/profile/view/upload.jsp">Go Back</a>
 		</div>
-
-
+<br><br>
+</div>
 	</div>
 
 

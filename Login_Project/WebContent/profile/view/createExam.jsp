@@ -56,10 +56,10 @@
 		</h2>
 
 		<div class="Tablecontainer">
-		
+
+<div class="cc">
 				
-			<h3>File Upload:</h3>
-			Select a file to upload: <br />
+		
 			<form action="uploadServlet" method="post"
 				enctype="multipart/form-data">
 				
@@ -72,9 +72,12 @@
 				<br> Year:<br> <input type="text" name="year" style="width: 312px;"/> <br>
 				<br> Format:<br> <input type="text" name="format" style="width: 312px;"/> <br>
 				<br>
+					<b>File Upload:</b>
+			Select a file to upload: <br />
 				<input type="file" name="file" size="50" /> <br /> <br> <input
 					type="submit" value="Create Exam" />
 			</form>
+			</div>
 			<a class="btn btn-danger float-right"
 				href="http://localhost:8080/Login_Project/user-home-page">Go
 				Back</a>

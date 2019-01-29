@@ -23,7 +23,7 @@
 	<%@ include file="/profile/view/navbar.jsp" %>
 </head>
 <body>
-
+<div class="row-fluid">
 	<div class="bodycontainer">
 
 		<%@ page import="common_things.metadata"%>
@@ -40,9 +40,11 @@
 			<span style="color: Black;">Exam Page</span>
 		</h2>
 		<br>
+		<div class="cc">
 		<div class="Tablecontainer">
 
-			<table style="border-color: #000000;" border="0">
+
+			<table style="border-color: #000000;">
 				<tr>
 					<td style="width: 180px;"><p class=>
 							<i class=></i> Exam Title:
@@ -158,14 +160,15 @@
 				<textarea style="width: 467px; height: 177px;"></textarea>
 				<br>
 				<br> <input type="checkbox"> Mark this as complete <br>
-				<br> <input type="submit" value="Submit"> <a
-					class="btn btn-danger float-right"
-					href="http://localhost:8080/Login_Project/user-home-page">Go
-					Back</a>
+				<br> <input type="submit" value="Submit"> 
 			</form>
 
-		</div>
 
+			<a class="btn btn-danger float-right"href="http://localhost:8080/Login_Project/user-home-page">Go Back</a>
+			<br><br>
+		</div>
+</div>
+</div>
 	</div>
 </body>
 </html>

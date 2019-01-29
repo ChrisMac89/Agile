@@ -47,7 +47,7 @@
 	}
 %>
 
-
+<div class="row-fluid">
 	<div class="bodycontainer">
 
 
@@ -58,7 +58,7 @@
 		<br>
 
 		<div class="Tablecontainer">
-
+<div class="cc">
 
 
 			<form method="post">
@@ -176,6 +176,7 @@ else {
 
 				</table>
 			</form>
+			</div>
 			<br>
 			<br> <a class="btn btn-primary"
 				href="http://localhost:8080/Login_Project/profile/view/createExam.jsp">Upload
@@ -186,7 +187,7 @@ else {
 
 
 	</div>
-
+</div>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>

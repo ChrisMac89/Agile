@@ -57,18 +57,15 @@ body {
 
 .Tablecontainer {
 
-    margin-left: 8%;
-    margin-right: 8%;
-    position: relative;
-    color: black;
-    background-color: #ffffff;
-	float:none;
-    top: 50%;
-    left: 50%;
-  	transform: translate(-50%, 0%);
-  	float:none;
+  	
 }
 
+.cc {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	
+}
 /* Bottom left text */
 .bottom-left {
   position: absolute;
