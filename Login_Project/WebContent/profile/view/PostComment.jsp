@@ -32,6 +32,12 @@
 %>
 	
 	<%  
+	
+	
+	
+	
+	
+	
 		String id = request.getParameter("examId");
 	    int id2 = Integer.parseInt(id);
 		out.println(id2);
@@ -42,10 +48,36 @@
 		System.out.println(comment);
 		Comment com = new Comment();
 		com.connect();
-		com.query("INSERT INTO comments (message, commenter, position, examId) VALUES ('" + comment + "', '" + user + "', '" + position + "', '" + id2 + "')");
+		//com.query("INSERT INTO comments (message, commenter, position, examId) VALUES ('" + comment + "', '" + user + "', '" + position + "', '" + id2 + "')");
+		//com.query("INSERT INTO comments (message, commenter, position, examId) VALUES ('aaa','bbb','ccc','99')");
+
+		
+		
+		
+	try
+	{
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection conn = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306/18agileteam2db", "18agileteam2", "8474.at2.4748");
+	Statement st=conn.createStatement();
+
+	int i=st.executeUpdate("INSERT INTO comments (message, commenter, position, examId) VALUES ('" + comment + "', '" + user + "', '" + position + "', '" + id2 + "')");
+	}
+	catch(Exception e)
+	{
+	System.out.print(e);
+	e.printStackTrace();
+	}
+		
+		
+		
+		
+		
+		
+		
+		
 		System.out.println(comment);
 		
 	%>
-	<script> window.location.href="http://localhost:8080/Login_Project/examPage.jsp"</script>
+	<script> window.location.href="http://localhost:8080/Login_Project/examPage.jsp?examId=<%=request.getParameter("examId")%>"</script>
 </body>
 </html>
