@@ -35,7 +35,7 @@
 </head>
 <body>
 	<%
-	Login_Bean obj_Login_Bean = (Login_Bean)session.getAttribute("user_session");
+	Login_Bean obj_Login_Bean = (Login_Bean)session.getAttribute("admin_session");
 	if(obj_Login_Bean == null){
 		session.setAttribute("login_message", "Please Login First");
 		
@@ -85,9 +85,7 @@
 				<input type="file" name="file" size="50" /> <br /> <br> 
 				<input type="submit" value="Create Exam" />
 			</form>
-			<a class="btn btn-danger float-right"
-				href="http://localhost:8080/Login_Project/user-home-page">Go
-				Back</a>
+			
 		</div>
 					<%
    try

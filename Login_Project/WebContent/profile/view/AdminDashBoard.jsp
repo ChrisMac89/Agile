@@ -63,7 +63,21 @@
 			<span style="color: black;">Dashboard</span>
 		</h2>
 		<br>
-
+				<a class="btn btn-primary"
+				href="http://localhost:8080/Login_Project/profile/view/AdminExam.jsp">Upload
+				New Exam</a> 
+				<br>
+				<br>
+				<a class="btn btn-primary"
+				href="http://localhost:8080/Login_Project/profile/view/AdminManageStaff.jsp">Manage Staff</a> 
+				<br>
+				<br>
+				<a class="btn btn-danger"
+				href="http://localhost:8080/Login_Project/Signoutcontroller">Log
+				Out</a>
+				
+				<br>
+				<br>
 		<div class="Tablecontainer">
 
 
@@ -135,11 +149,7 @@
 				</table>
 			</form>
 			<br>
-			<br> <a class="btn btn-primary"
-				href="http://localhost:8080/Login_Project/profile/view/createExam.jsp">Upload
-				New Exam</a> <a class="btn btn-danger float-right"
-				href="http://localhost:8080/Login_Project/Signoutcontroller">Log
-				Out</a>
+			<br> 
 		</div>
 
 
