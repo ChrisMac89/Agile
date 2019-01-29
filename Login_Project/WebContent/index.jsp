@@ -44,7 +44,15 @@
 			&nbsp; <input type="password" name="password" value="" size="50" />
 
 			<br> <br>
-
+			Please Select your position:&nbsp; &nbsp;
+<select name="position">
+  <option value="TeachingStaff">Teaching Staff</option>
+  <option value="InternalModerator">Internal Moderator</option>
+  <option value="ExamCommitee">Exam Commitee</option>
+  <option value="ExternalModerator">External Moderator</option>
+  <option value="SchoolOffice">School Office</option>
+  <option value="ExamOfficer">Exam Officer</option>
+</select><br><br>
 			<%
         String message = (String)session.getAttribute("login_message"); 
         if(message!=null)

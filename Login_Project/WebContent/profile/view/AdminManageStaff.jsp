@@ -65,10 +65,11 @@
 		<br>
 		<h3>Register Staff</h3>
 		<br>
-		<form action="/addStaffServlet" method="post"
-				enctype="multipart/form-data">
+
+		<form action="addStaffServlet" method="post">
+
 				
-				<br> First Name: <br><input type="text" name="firstName" style="width: 312px;"/> <br> 
+				<br> First Name: <br> <input type="text" name="firstName" style="width: 312px;"/> <br> 
 				<br> Surname: <br> <input type="text" name="surname" style="width: 312px;"/> <br>
 				<br> Staff ID:<br> <input type="text" name="staffID" style="width: 312px;"/> <br>
 				<br>

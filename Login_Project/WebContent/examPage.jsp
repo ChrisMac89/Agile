@@ -130,11 +130,11 @@
     	%>
 			<br>
 			<p>
-				<%	out.println(rs.getString("message"));	%>
+				<%	out.println('"' + rs.getString("message") + '"');	%>
 			</p>
 
 			<p>
-				<%	out.println("Comment posted by: " + rs.getString("commenter") + " " + rs.getString("position"));	%>
+				<%	out.println("&nbsp &nbsp &nbsp &nbsp Comment posted by: " + rs.getString("commenter") + ", " + rs.getString("position"));	%>
 			</p>
 			<br>
 			<%  

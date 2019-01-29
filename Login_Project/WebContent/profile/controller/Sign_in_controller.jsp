@@ -11,7 +11,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:useBean id="obj_Login_Bean" class="bean.Login_Bean"></jsp:useBean>	
+ 
+<jsp:useBean id="obj_Login_Bean" class="bean.Login_Bean"></jsp:useBean>
 <jsp:setProperty property="*" name="obj_Login_Bean"/>
 
 <%
