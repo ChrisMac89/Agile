@@ -33,6 +33,12 @@ body {
 .navbar-brand:hover {
   color: #e0e0e0!important;
 }
+
+.tp{
+	    
+	    margin: auto!important;
+}
+
 	
 /* Container holding the image and the text */
 .bodycontainer {
