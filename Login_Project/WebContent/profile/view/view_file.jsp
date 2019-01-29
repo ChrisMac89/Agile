@@ -15,6 +15,7 @@
 
 <html>
 <head>
+<link rel="icon" type="image/png/ico" href="resources/favicon.ico"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>

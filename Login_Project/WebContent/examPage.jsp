@@ -13,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<link rel="icon" type="image/png/ico" href="resources/favicon.ico"/>
 
 <link href="profile/view/css/archives.css" rel="stylesheet">
 <title>Exam Page</title>

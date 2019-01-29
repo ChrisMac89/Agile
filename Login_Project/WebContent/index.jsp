@@ -11,6 +11,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" type="image/png/ico" href="resources/favicon.ico"/>
+
+
 <title>Welcome to Exam System</title>
 <!-- Custom styles for this page -->
 <link href="css/full.css" rel="stylesheet">
