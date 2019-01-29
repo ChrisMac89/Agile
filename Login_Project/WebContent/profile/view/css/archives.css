@@ -24,7 +24,9 @@ body {
   color: #e0e0e0!important;
 }
 
-
+.commentposter {
+	color:#808080!important;
+}
 .navbar-brand {
  
     color: white;

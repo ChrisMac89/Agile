@@ -132,10 +132,11 @@
 			<p>
 				<%	out.println('"' + rs.getString("message") + '"');	%>
 			</p>
-
+<div class="commentposter">
 			<p>
-				<%	out.println("&nbsp &nbsp &nbsp &nbsp Comment posted by: " + rs.getString("commenter") + ", " + rs.getString("position"));	%>
+				<%	out.println("&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  - Comment posted by: " + rs.getString("commenter") + ", " + rs.getString("position"));	%>
 			</p>
+</div>
 			<br>
 			<%  
      }
