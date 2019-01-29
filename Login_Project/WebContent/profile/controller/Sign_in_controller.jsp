@@ -18,6 +18,8 @@
 <%
 System.out.println(obj_Login_Bean.getEmail());
 System.out.println(obj_Login_Bean.getPassword());
+System.out.println(obj_Login_Bean.getPosition());
+
 
 Login_Modal obj_Login_Modal = new Login_Modal(); 
 
