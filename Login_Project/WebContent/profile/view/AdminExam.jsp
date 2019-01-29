@@ -51,6 +51,85 @@
 	
 	<% 
 	}
+	
+	int staffTotal = 0;
+	String[][] teachingStaff = new String[20][20]; int teachingStaffIndex = 0;
+	String[][] internalMod = new String[20][20]; int internalModIndex = 0;
+	String[][] examCommittee = new String[20][20]; int examCommitteeIndex = 0;
+	String[][] externalMod = new String[20][20]; int externalModIndex = 0;
+	
+	
+	
+		try
+	   	{
+			DB_Connection obj_DB_Connection = new DB_Connection();
+			Connection connection = obj_DB_Connection.getConnection();
+			
+	       String query="SELECT staffId, firstName, lastName, position FROM staff";
+	       PreparedStatement statement = connection.prepareStatement(query);
+	       ResultSet rs=statement.executeQuery(query);
+	       
+	       
+	       
+			while(rs.next())
+			{
+			 	   
+				  //TODO: Refactor
+			 	  //This switch could be done in a much more efficient way
+			 	  switch(rs.getString("position")) {
+			 	  case "Teaching Staff": 
+			 		 teachingStaff[teachingStaffIndex][0] = rs.getString("firstName");
+			 		 teachingStaff[teachingStaffIndex][0] += " ";
+			 		 teachingStaff[teachingStaffIndex][0] += rs.getString("lastName");
+			 		 teachingStaff[teachingStaffIndex][1] = rs.getString("staffId");
+			 		 teachingStaffIndex++;
+			 		  break;
+			 	  case "Internal Moderator":
+			 		 internalMod[internalModIndex][0] = rs.getString("firstName");
+			 		internalMod[internalModIndex][0] += " ";
+			 		internalMod[internalModIndex][0] += rs.getString("lastName");
+			 		internalMod[internalModIndex][1] = rs.getString("staffId");
+			 		internalModIndex++;
+			 		  break;
+			 	  case "Exam Commitee":
+			 		 examCommittee[examCommitteeIndex][0] = rs.getString("firstName");
+			 		examCommittee[examCommitteeIndex][0] += " ";
+			 		examCommittee[examCommitteeIndex][0] += rs.getString("lastName");
+			 		examCommittee[examCommitteeIndex][1] = rs.getString("staffId");
+			 		examCommitteeIndex++;
+			 		  break;
+			 	  case "External Moderator":
+			 		 externalMod[externalModIndex][0] = rs.getString("firstName");
+			 		externalMod[externalModIndex][0] += " ";
+			 		externalMod[externalModIndex][0] += rs.getString("lastName");
+			 		externalMod[externalModIndex][1] = rs.getString("staffId");
+			 		externalModIndex++;
+			 		  break;
+			 		
+			 	default:
+			 		System.out.println("SWITCH REACHED DEFAULT");
+			 	  }
+			 	   
+			}
+			
+			
+	
+			System.out.println("First teaching staff name: " + teachingStaff[0][0]);
+			System.out.println("First teaching staff id: " + teachingStaff[0][1]);
+			
+			rs.close();
+			statement.close();
+			connection.close();
+			
+	   	}
+   	   catch(Exception e)
+   	   {
+   	        e.printStackTrace();
+   	   }
+
+	
+	
+	
 %>
 	<div class="container">
 
@@ -83,6 +162,58 @@
 				<br> Format:<br> <input type="text" name="format" style="width: 312px;"/> <br>
 				<br>
 				<input type="file" name="file" size="50" /> <br /> <br> 
+				<h3>Allocate roles:</h3>
+				<p>Teaching Staff</p>
+				<select>
+					<% 
+					for(int i=0; i < teachingStaffIndex; i++)
+					{
+					%>
+					    <option value = <%= teachingStaff[i][1] %>> <%= teachingStaff[i][0] %></option>
+				<% }%>
+				</select>
+				<br>
+				<br>
+				<p>Internal Moderator</p>
+				<select>
+					<% 
+					for(int i=0; i < internalModIndex; i++)
+					{
+					    %>
+					    <option value = <%= internalMod[i][1] %>> <%= internalMod[i][0] %></option>
+					    <% 
+					}
+					%>
+				</select>
+				<br>
+				<br>
+				<p>Exam Committee</p>
+				<select>
+					<% 
+					for(int i=0; i < examCommitteeIndex; i++)
+					{
+					    %>
+					    <option value = <%= examCommittee[i][1] %>> <%= examCommittee[i][0] %></option>
+					    <% 
+					}
+					%>
+				</select>
+				<br>
+				<br>
+				<p>External Moderator</p>
+				<select>
+					<% 
+					for(int i=0; i < externalModIndex; i++)
+					{
+					    %>
+					    <option value = <%= externalMod[i][1] %>> <%= externalMod[i][0] %></option>
+					    <% 
+					}
+					%>
+				</select>
+				<br>
+				<br>
+				
 				<input type="submit" value="Create Exam" />
 			</form>
 			
