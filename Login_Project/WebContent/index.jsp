@@ -44,7 +44,7 @@
 			&nbsp; <input type="password" name="password" value="" size="50" />
 
 			<br> <br>
-			Please Select your position:&nbsp; &nbsp; 
+			Please Select your position:&nbsp; &nbsp;
 <select name="position">
   <option value="TeachingStaff">Teaching Staff</option>
   <option value="InternalModerator">Internal Moderator</option>
