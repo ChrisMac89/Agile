@@ -65,7 +65,7 @@
 		<br>
 		<h3>Register Staff</h3>
 		<br>
-		<form action="addStaffServlet" method="post"
+		<form action="/addStaffServlet" method="post"
 				enctype="multipart/form-data">
 				
 				<br> First Name: <br><input type="text" name="firstName" style="width: 312px;"/> <br> 
