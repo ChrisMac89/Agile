@@ -157,7 +157,7 @@
 			<p>Write a comment:</p>
 
 			<form action="nextPage.jsp" method="POST">
-				<textarea style="width: 467px; height: 177px;"></textarea>
+				<textarea name = "comment" style="width: 467px; height: 177px;"></textarea>
 				<br>
 				<br> <input type="checkbox"> Mark this as complete <br>
 				<br> <input type="submit" value="Submit"> 
