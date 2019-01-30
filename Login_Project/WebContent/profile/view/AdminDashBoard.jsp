@@ -26,9 +26,12 @@
 
 <title>Admin Dashboard</title>
 <!-- CSS for styling -->
-<link href="./css/Dashboard.css" rel="stylesheet">
+<link href="profile/view/css/archives.css" rel="stylesheet">
+
 <!-- Bootstrap core CSS -->
-<link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<%@ include file="adminNavbar.jsp" %>
 
 
 
@@ -52,33 +55,21 @@
 	<% 
 	}
 %>
-	<div class="container">
 
 
-		<p>
-			<img style="display: block; margin-left: auto; margin-right: auto;"
-				src="./resources/logo.png" alt="" width="400" height="137" />
-		</p>
+
+	<div class="row-fluid">
+	<div class="bodycontainer">
+
+
+		
 		<h2 style="color: #5e9ca0; text-align: center;">
 			<span style="color: black;">Dashboard</span>
 		</h2>
 		<br>
-				<a class="btn btn-primary"
-				href="http://localhost:8080/Login_Project/profile/view/AdminExam.jsp">Upload
-				New Exam</a> 
-				<br>
-				<br>
-				<a class="btn btn-primary"
-				href="http://localhost:8080/Login_Project/profile/view/AdminManageStaff.jsp">Manage Staff</a> 
-				<br>
-				<br>
-				<a class="btn btn-danger"
-				href="http://localhost:8080/Login_Project/Signoutcontroller">Log
-				Out</a>
 				
-				<br>
-				<br>
-		<div class="Tablecontainer">
+			<div class="Tablecontainer">
+<div class="cc">
 
 
 
@@ -89,7 +80,7 @@
 						<td>Resit</td>
 						<td>Exam</td>
 						<td>Solution</td>
-						<td>Stage</td>
+						<td>Status</td>
 					</tr>
 					<%
    try
@@ -103,6 +94,43 @@
        while(rs.next())
        {
    %>
+   <%//out.println(rs.getString("stage")); 
+		
+		String myColor = rs.getString("stage");
+		//out.println(myColor);
+		%>
+  <%
+ 
+ 
+String newColor = "Red";
+String progressColor ="Yellow";
+String completedColor ="Green";
+//String myColor = request.getParameter("stage"); 
+//String myColor ="";
+String level = rs.getString("stage");
+ 
+if (level.equals("New"))
+{
+
+	myColor = newColor;
+	System.out.println(rs.getString("stage"));
+} else if (level.equals("In-Progress"))
+{
+	myColor = progressColor;
+	System.out.println(rs.getString("stage"));
+
+}
+else {
+	
+	myColor = completedColor;
+	System.out.println(rs.getString("stage"));
+}
+	
+
+
+
+%>
+   
 					<tr>
 						<td>
 							<%out.println(rs.getString("resitExam")); %>
@@ -124,7 +152,7 @@
 
 								<%out.println(rs.getString("solution")); %>
 						</a></td>
-						<td>
+						<td style="background-color:<%=myColor %>;">
 							<%out.println(rs.getString("stage")); %>
 						</td>
 					</tr>
@@ -151,10 +179,20 @@
 			<br>
 			<br> 
 		</div>
+		</div>
+		
+		
 
+				<br>
+				<a class="btn btn-danger float-right"
+				href="http://localhost:8080/Login_Project/Signoutcontroller">Log
+				Out</a>
+				
+				<br>
+				<br>
 
 	</div>
-
+</div>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>

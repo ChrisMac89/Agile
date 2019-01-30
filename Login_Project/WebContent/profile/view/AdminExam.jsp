@@ -26,11 +26,11 @@
 
 <title>Admin Exam Management</title>
 <!-- CSS for styling -->
-<link href="./css/Dashboard.css" rel="stylesheet">
+<link href="css/archives.css" rel="stylesheet">
 <!-- Bootstrap core CSS -->
-<link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-
+<%@ include file="adminNavbar.jsp" %>
 
 </head>
 <body>
@@ -131,13 +131,13 @@
 	
 	
 %>
-	<div class="container">
+
+<div class="row-fluid">
+	<div class="bodycontainer">
 
 
-		<p>
-			<img style="display: block; margin-left: auto; margin-right: auto;"
-				src="./resources/logo.png" alt="" width="400" height="137" />
-		</p>
+
+		
 		<h2 style="color: #5e9ca0; text-align: center;">
 			<span style="color: black;">Exam Management</span>
 		</h2>
@@ -146,9 +146,10 @@
 
 
 		<div class="Tablecontainer">
+
+<div class="cc">
 		
-			<h3>File Upload:</h3>
-			Select a file to upload: <br />
+			
 			<form action="uploadServlet" method="post"
 				enctype="multipart/form-data">
 				
@@ -161,6 +162,8 @@
 				<br> Year:<br> <input type="text" name="year" style="width: 312px;"/> <br>
 				<br> Format:<br> <input type="text" name="format" style="width: 312px;"/> <br>
 				<br>
+				<b>File Upload:</b><br>
+			Select a file to upload: <br />
 				<input type="file" name="file" size="50" /> <br /> <br> 
 				<h3>Allocate roles:</h3>
 				<p>Teaching Staff</p>
@@ -232,6 +235,7 @@
 			</form>
 
 		</div>
+</div>
 
 
 	</div>
