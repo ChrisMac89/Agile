@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+	<!DOCTYPE html>
 <%@ page import="java.sql.ResultSet"%>
 <%@ page import="java.sql.Statement"%>
 <%@ page import="java.sql.Connection"%>
@@ -9,6 +10,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="common_things.DB_Connection"%>
+<%@ page import="java.sql.PreparedStatement" %>
 
 <!-- Code Below reviewed by Andrew --> 
 
@@ -46,13 +48,26 @@
 	}
 %>
 
+
+<%@ page import="common_things.metadata"%>
+ 
+		<%
+  metadata meta = new metadata();
+  meta.connect();
+  String id = request.getParameter("examId");
+  
+  
+  meta.query(id); //change this parameter to show results for a different exam (currently displaying metadata for exam with ID 8)
+  %>
+
+
 <div class="row-fluid">
 	<div class="bodycontainer">
 
 
 		
 		<h2 style="color: #5e9ca0; text-align: center;">
-			<span style="color: black;">Dashboard</span>
+			<span style="color: black;">School Office Dashboard</span>
 		</h2>
 		<br>
 
@@ -68,6 +83,8 @@
 						<td>Exam</td>
 						<td>Solution</td>
 						<td>Status</td>
+						<td>Download Exam</td>
+						
 						
 					</tr>
 					
@@ -79,7 +96,7 @@
        String url="jdbc:mysql://silva.computing.dundee.ac.uk:3306/18agileteam2db";
        String username="18agileteam2";
        String password="8474.at2.4748";
-       String query="SELECT exam, examId, solution, stage, resitExam FROM exam";
+       String query="SELECT exam, examId, examTitle, solution, stage, resitExam FROM exam";
        Connection conn=DriverManager.getConnection(url, username, password);
        Statement stmt=conn.createStatement();
        ResultSet rs=stmt.executeQuery(query);
@@ -131,8 +148,9 @@ else {
 						<td>
 							<%out.println(rs.getString("resitExam")); %>
 						</td>
-						<td><a
-							href="http://localhost:8080/Login_Project/examPage.jsp?examId=<%out.print(rs.getString("examId"));%>"><%=rs.getString("exam") %></a>
+						<td>
+						<!-- <a
+							href="http://localhost:8080/Login_Project/examPage.jsp?examId=<%out.print(rs.getString("examId"));%>">--><%=rs.getString("exam") %></a>
 							</center></td>
 
 
@@ -141,17 +159,34 @@ else {
 						</a>
 						</td>
 
-						<td><a
-							href="http://localhost:8080/<%=rs.getString("solution") %>">
+						<td>
+						<!-- <a
+							href="http://localhost:8080/<%=rs.getString("examTitle") %>"> -->
 
 								<!--  <a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/<%=rs.getString("solution") %>"> -->
 
-								<%out.println(rs.getString("solution")); %>
+								<%out.println(rs.getString("examTitle")); %>
 						</a></td>
 					
 						<td style="background-color:<%=myColor %>;">
 							<%out.println(rs.getString("stage")); %>
 						</td>
+						
+						<td>
+						
+						<%
+			String level2 = rs.getString("stage");
+			if (level2.equals("Completed"))
+			{%>
+
+				<a class="btn btn-primary"
+				href="view_file.jsp?examId=<%out.print(meta.getExamCode());%><%out.print(rs.getString("examId"));%>"
+				target="_blank" role="button">Download Exam</a>
+			<%} 
+			
+			%>
+						
+						 <br></td>
 					</tr>
 
 					<%
@@ -159,7 +194,7 @@ else {
    %>
 					<%=rs.getString("resitExam") %>
 					<td><%=rs.getString("exam") %></td>
-					<td><%=rs.getString("solution") %></td>
+					<td><%=rs.getString("examTitle") %></td>
 					<td><%=rs.getString("stage") %></td>
 					<%
         rs.close();
@@ -175,12 +210,17 @@ else {
 
 				</table>
 			</form>
-			</div>
 			<br>
-			<br> 
-				 <a class="btn btn-danger float-right"
+			
+			</div>
+			<a class="btn btn-danger float-right"
 				href="http://localhost:8080/Login_Project/Signoutcontroller">Log
 				Out</a>
+			<br>
+			<br> 
+			
+			
+				 
 		</div>
 
 
