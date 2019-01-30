@@ -46,7 +46,7 @@
                 DB_Connection dbconn=new DB_Connection();
                 Connection conn= dbconn.getConnection();
             
-                String sqlString = "SELECT file FROM exam WHERE examId = '"+id+"' ";
+                String sqlString = "SELECT solutionfile FROM exam WHERE examId = '"+id+"' ";
                 Statement myStatement = conn.createStatement();
                 
                 ResultSet rs=myStatement.executeQuery(sqlString);
