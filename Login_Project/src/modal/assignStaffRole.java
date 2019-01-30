@@ -33,6 +33,8 @@ public class assignStaffRole extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
+		System.out.println("examId: " + request.getParameter("examId"));
+		
 		String message = null;
 		try 
     	{
