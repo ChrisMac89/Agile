@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -33,6 +34,8 @@ public class assignStaffRole extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
+		int isPresent = isPresent(request.getParameter("examId"));
+		
 		String message = null;
 		try 
     	{
@@ -49,18 +52,32 @@ public class assignStaffRole extends HttpServlet {
 	            // connects to the database
 	            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 	            
-	 
-	            // constructs SQL statement
-	            String sql = "INSERT INTO staffroles (examId, examSetter, internalModerator, examCommitee, externalModerator) values (?, ?, ?, ?, ?)";
+	            PreparedStatement statement = null;
 	            
-	            PreparedStatement statement = connection.prepareStatement(sql);
-	            statement.setString(1, request.getParameter("examId"));
-	            statement.setString(2, request.getParameter("examSetter"));
-	            statement.setString(3, request.getParameter("internalModerator"));
-	            statement.setString(4, request.getParameter("examCommitee"));
-	            statement.setString(5, request.getParameter("externalModerator"));
-	            
-	            System.out.println(request.getParameter("examId"));
+
+	            if(isPresent == 1) {
+		            String sql = "UPDATE staffroles SET examSetter = ?, internalModerator = ?, examCommitee = ?, externalModerator = ? WHERE examId = ?";
+		            statement = connection.prepareStatement(sql);
+		            
+		            statement.setString(1, request.getParameter("examSetter"));
+		            statement.setString(2, request.getParameter("internalModerator"));
+		            statement.setString(3, request.getParameter("examCommitee"));
+		            statement.setString(4, request.getParameter("externalModerator"));
+		            statement.setString(5, request.getParameter("examId"));
+	            }
+	            else {
+	            	String sql = "INSERT INTO staffroles (examId, examSetter, internalModerator, examCommitee, externalModerator) values (?, ?, ?, ?, ?)";
+		            statement = connection.prepareStatement(sql);
+
+		            
+		            statement.setString(1, request.getParameter("examId"));
+		            statement.setString(2, request.getParameter("examSetter"));
+		            statement.setString(3, request.getParameter("internalModerator"));
+		            statement.setString(4, request.getParameter("examCommitee"));
+		            statement.setString(5, request.getParameter("externalModerator"));
+	            }
+	     
+
 
 	            // sends the statement to the database server
 	            int row = statement.executeUpdate();
@@ -96,13 +113,81 @@ public class assignStaffRole extends HttpServlet {
             request.setAttribute("Message", message);
              
             // forwards to the message page
-            getServletContext().getRequestDispatcher("/profile/view/Message.jsp").forward(request, response);
-            
+            //getServletContext().getRequestDispatcher("/profile/view/Message.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/examPage.jsp?exmaId=" + request.getParameter("examId")).forward(request, response);
+
         }
 		
 		
 		
 		
+	}
+	
+	public static int isPresent(String examId) {
+		
+		DB_Connection obj_DB_Connection = new DB_Connection();
+		Connection connection = obj_DB_Connection.getConnection();
+		int valueReceived = 0;
+		
+		
+		
+		try 
+    	{
+            Class.forName("com.mysql.jdbc.Driver");
+         }
+    	catch(ClassNotFoundException e) 
+    	{
+            System.out.println("Class not found "+ e);
+        }
+		
+		
+		try 
+        {
+	            // connects to the database
+	            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+	            
+	 
+	         // constructs SQL statement
+	         // constructs SQL statement
+	            String sql = "SELECT ( EXISTS(SELECT * FROM staffroles WHERE examId = ?))";
+	            PreparedStatement statement = connection.prepareStatement(sql);
+	            statement.setString(1, examId);
+	            
+
+	            // sends the statement to the database server
+	            
+	            
+	            statement.executeQuery();
+	            
+
+	            
+	            ResultSet results = statement.getResultSet();
+	            results.next();
+	            valueReceived = results.getInt(1);
+	            
+	            System.out.println("valueReceived: " + valueReceived);
+  
+        }
+        catch (SQLException ex) 
+        {
+        	ex.printStackTrace();
+        }
+        finally 
+        {
+            if (connection != null) {
+                // closes the database connection
+                try {
+                    connection.close();
+                } 
+                catch (SQLException ex) 
+                {
+                    ex.printStackTrace();
+                }
+            }
+        }
+          
+
+		return valueReceived;
 	}
 
 }

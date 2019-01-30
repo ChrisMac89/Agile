@@ -223,7 +223,7 @@
 			%>
 			
 			<form action="/Login_Project/assignStaffRole" method="post"
-				enctype="multipart/form-data">
+				>
 				<h3>Allocate roles:</h3>
 				<p>Teaching Staff</p>
 				<select name="examSetter">
