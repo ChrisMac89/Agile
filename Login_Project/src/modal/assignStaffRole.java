@@ -59,7 +59,8 @@ public class assignStaffRole extends HttpServlet {
 	            statement.setString(3, request.getParameter("internalModerator"));
 	            statement.setString(4, request.getParameter("examCommitee"));
 	            statement.setString(5, request.getParameter("externalModerator"));
-
+	            
+	            System.out.println(request.getParameter("examId"));
 
 	            // sends the statement to the database server
 	            int row = statement.executeUpdate();
