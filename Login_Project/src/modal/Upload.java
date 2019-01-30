@@ -111,14 +111,26 @@ public class Upload extends HttpServlet {
 	            statement.setString(8, request.getParameter("examYear"));
 	            statement.setString(9, request.getParameter("examFormat"));
 	            
+	            
+	            
+	            String sql2 = "INSERT INTO staffroles (examId, examSetterSignature, internalModeratorSignature, examCommiteeSignature, externalModeratorSignature, examSetterDeadline, internalModeratorDeadline, examCommiteeDeadline, externalModeratorDeadline) values (?,'0','0','0','0',NOW() + INTERVAL 1 WEEK,NOW() + INTERVAL 2 WEEK,NOW() + INTERVAL 3 WEEK,NOW() + INTERVAL 4 WEEK)";
+	            //,?,?,?,?,?,?,?
+	            //, examId, examType, moduleId, moduleCoordinator, examLevel, examYear, examFormat
+	            PreparedStatement statement2 = connection.prepareStatement(sql2);
+	            statement2.setString(1, request.getParameter("examId"));
+	            
+	            
+	            statement2.executeUpdate();
+	            
+	            
+	            
 	            if (inputStream != null) 
 	            {
 	                // fetches input stream of the upload file for the blob column
 	                statement.setBlob(1, inputStream);
 	            }
 	 
-	            // sends the statement to the database server
-	            int row = statement.executeUpdate();
+	            	            int row = statement.executeUpdate();
 	            
 	            if (row > 0) 
 	            {
