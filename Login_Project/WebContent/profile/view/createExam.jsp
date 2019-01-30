@@ -36,7 +36,8 @@
 
 	<%
 		Login_Bean obj_Login_Bean = (Login_Bean) session.getAttribute("user_session");
-		if (obj_Login_Bean == null) {
+		Login_Bean obj_Login_Bean_admin = (Login_Bean)session.getAttribute("admin_session");
+		if ((obj_Login_Bean == null) && (obj_Login_Bean_admin == null)) {
 			session.setAttribute("login_message", "Please Login First");
 	%>
 	<script type="text/javascript">

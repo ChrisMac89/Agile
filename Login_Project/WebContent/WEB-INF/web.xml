@@ -9,28 +9,28 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet> 
-	 <servlet-name>Home</servlet-name>
-	 <jsp-file>/profile/view/upload.jsp</jsp-file>
-	 </servlet>
-	 <servlet-mapping>
-	 <servlet-name>Home</servlet-name>
-	 <url-pattern>/user-home-page/*</url-pattern> 
-	 </servlet-mapping>
-	 <servlet> 
-	 <servlet-name>My_Profile</servlet-name>
-	 <jsp-file>/profile/view/My_Profile.jsp</jsp-file>
-	 </servlet>
-	 <servlet-mapping>
-	 <servlet-name>My_Profile</servlet-name>
-	 <url-pattern>/user-profile</url-pattern> 
-	 </servlet-mapping>
-	 <servlet> 
-	 <servlet-name>Signoutcontroller</servlet-name>
-	 <jsp-file>/profile/controller/Signoutcontroller.jsp</jsp-file>
-	 </servlet>
-	 <servlet-mapping>
-	 <servlet-name>Signoutcontroller</servlet-name>
-	 <url-pattern>/Signoutcontroller</url-pattern> 
-	 </servlet-mapping>
+  <servlet>
+    <servlet-name>Home</servlet-name>
+    <jsp-file>/profile/view/upload.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Home</servlet-name>
+    <url-pattern>/user-home-page/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>My_Profile</servlet-name>
+    <jsp-file>/profile/view/My_Profile.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>My_Profile</servlet-name>
+    <url-pattern>/user-profile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Signoutcontroller</servlet-name>
+    <jsp-file>/profile/controller/Signoutcontroller.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Signoutcontroller</servlet-name>
+    <url-pattern>/Signoutcontroller</url-pattern>
+  </servlet-mapping>
 </web-app>

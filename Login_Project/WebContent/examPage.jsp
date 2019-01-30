@@ -7,6 +7,8 @@
 <%@ page import="java.sql.Statement"%>
 <%@ page import="java.sql.Connection"%>
 <%@ page import="java.sql.DriverManager"%>
+<%@ page import="common_things.DB_Connection"%>
+<%@ page import="java.sql.PreparedStatement" %>
 
 
 <html>
@@ -25,11 +27,15 @@
 </head>
 <body>
 	<%
+	
+	boolean isAdmin = false;
+	
 	Login_Bean obj_Login_Bean = (Login_Bean)session.getAttribute("admin_session");
 	Login_Bean obj_Login_Bean_user = (Login_Bean)session.getAttribute("user_session");
 	if(!(obj_Login_Bean == null)){
 		
 		System.out.println("Secret admin options");
+		isAdmin = true;
 		
 	}
 	else if(!(obj_Login_Bean_user == null))
@@ -48,6 +54,8 @@
   metadata meta = new metadata();
   meta.connect();
   String id = request.getParameter("examId");
+  
+  
   meta.query(id); //change this parameter to show results for a different exam (currently displaying metadata for exam with ID 8)
   %>
 
@@ -125,6 +133,165 @@
 					<td><%=meta.getFormat() %></td>
 				</tr>
 			</table>
+			
+			
+			<!-- TOP -->
+			
+			<% if(isAdmin) {
+			
+				
+				int staffTotal = 0;
+				String[][] teachingStaff = new String[20][20]; int teachingStaffIndex = 0;
+				String[][] internalMod = new String[20][20]; int internalModIndex = 0;
+				String[][] examCommittee = new String[20][20]; int examCommitteeIndex = 0;
+				String[][] externalMod = new String[20][20]; int externalModIndex = 0;
+				
+				
+				
+					try
+				   	{
+						DB_Connection obj_DB_Connection = new DB_Connection();
+						Connection connection = obj_DB_Connection.getConnection();
+						
+				       String query="SELECT staffId, firstName, lastName, position FROM staff";
+				       PreparedStatement statement = connection.prepareStatement(query);
+				       ResultSet rs=statement.executeQuery(query);
+				       
+				       
+				       
+						while(rs.next())
+						{
+						 	   
+							  //TODO: Refactor
+						 	  //This switch could be done in a much more efficient way
+						 	  switch(rs.getString("position")) {
+						 	  case "Teaching Staff": 
+						 		 teachingStaff[teachingStaffIndex][0] = rs.getString("firstName");
+						 		 teachingStaff[teachingStaffIndex][0] += " ";
+						 		 teachingStaff[teachingStaffIndex][0] += rs.getString("lastName");
+						 		 teachingStaff[teachingStaffIndex][1] = rs.getString("staffId");
+						 		 teachingStaffIndex++;
+						 		  break;
+						 	  case "Internal Moderator":
+						 		 internalMod[internalModIndex][0] = rs.getString("firstName");
+						 		internalMod[internalModIndex][0] += " ";
+						 		internalMod[internalModIndex][0] += rs.getString("lastName");
+						 		internalMod[internalModIndex][1] = rs.getString("staffId");
+						 		internalModIndex++;
+						 		  break;
+						 	  case "Exam Commitee":
+						 		 examCommittee[examCommitteeIndex][0] = rs.getString("firstName");
+						 		examCommittee[examCommitteeIndex][0] += " ";
+						 		examCommittee[examCommitteeIndex][0] += rs.getString("lastName");
+						 		examCommittee[examCommitteeIndex][1] = rs.getString("staffId");
+						 		examCommitteeIndex++;
+						 		  break;
+						 	  case "External Moderator":
+						 		 externalMod[externalModIndex][0] = rs.getString("firstName");
+						 		externalMod[externalModIndex][0] += " ";
+						 		externalMod[externalModIndex][0] += rs.getString("lastName");
+						 		externalMod[externalModIndex][1] = rs.getString("staffId");
+						 		externalModIndex++;
+						 		  break;
+						 		
+						 	default:
+						 		System.out.println("SWITCH REACHED DEFAULT");
+						 	  }
+						 	   
+						}
+						
+						
+				
+						System.out.println("First teaching staff name: " + teachingStaff[0][0]);
+						System.out.println("First teaching staff id: " + teachingStaff[0][1]);
+						
+						rs.close();
+						statement.close();
+						connection.close();
+						
+				   	}
+			   	   catch(Exception e)
+			   	   {
+			   	        e.printStackTrace();
+			   	   }
+
+				
+				
+				
+			
+			
+			%>
+			
+			<form action="/Login_Project/assignStaffRole" method="post"
+				enctype="multipart/form-data">
+				<h3>Allocate roles:</h3>
+				<p>Teaching Staff</p>
+				<select name="examSetter">
+					<% 
+					for(int i=0; i < teachingStaffIndex; i++)
+					{
+					%>
+					    <option value = <%= teachingStaff[i][1] %>> <%= teachingStaff[i][0] %></option>
+				<% }%>
+				</select>
+				<br>
+				<br>
+				<p>Internal Moderator</p>
+				<select name="internalModerator">
+					<% 
+					for(int i=0; i < internalModIndex; i++)
+					{
+					    %>
+					    <option value = <%= internalMod[i][1] %>> <%= internalMod[i][0] %></option>
+					    <% 
+					}
+					%>
+				</select>
+				<br>
+				<br>
+				<p>Exam Committee</p>
+				<select name="examCommitee">
+					<% 
+					for(int i=0; i < examCommitteeIndex; i++)
+					{
+					    %>
+					    <option value = <%= examCommittee[i][1] %>> <%= examCommittee[i][0] %></option>
+					    <% 
+					}
+					%>
+				</select>
+				<br>
+				<br>
+				<p>External Moderator</p>
+				<select name="externalModerator">
+					<% 
+					for(int i=0; i < externalModIndex; i++)
+					{
+					    %>
+					    <option value = <%= externalMod[i][1] %>> <%= externalMod[i][0] %></option>
+					    <% 
+					}
+					%>
+				</select>
+				<br>
+				<br>
+				<input type="hidden" name="examId" value="<%= request.getParameter("examId") %>" >
+				<input type="submit" value="Assign Roles" />
+			</form>
+			
+			<%} %>
+			
+			
+			
+			<!-- Bottom -->
+			
+			
+			
+			
+			
+			
+			
+			
 
 			<a class="btn btn-primary"
 				href="profile/view/view_file.jsp?examId=<%out.print(meta.getExamCode());%>"
@@ -183,6 +350,9 @@
 
 			<a class="btn btn-danger float-right"href="http://localhost:8080/Login_Project/user-home-page">Go Back</a>
 			<br><br>
+			
+			
+
 		</div>
 </div>
 </div>
