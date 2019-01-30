@@ -26,12 +26,13 @@
 <body>
 	<%
 	Login_Bean obj_Login_Bean = (Login_Bean)session.getAttribute("admin_session");
+	Login_Bean obj_Login_Bean_user = (Login_Bean)session.getAttribute("user_session");
 	if(!(obj_Login_Bean == null)){
 		
 		System.out.println("Secret admin options");
 		
 	}
-	else 
+	else if(!(obj_Login_Bean_user == null))
 	{
 		System.out.println("Not admin");
 	}

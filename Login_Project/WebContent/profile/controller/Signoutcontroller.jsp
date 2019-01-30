@@ -1,6 +1,7 @@
 
  	<%
  		session.removeAttribute("user_session");
+ 		session.removeAttribute("admin_session");
  		session.setAttribute("login_message", "Sign Out Sucessfull");
  	%>
  	<script type="text/javascript">
