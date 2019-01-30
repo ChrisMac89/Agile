@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package examWorkflow;
+package common_things;
 
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Chris
  */
-public class CommentRetrieving {
+public class commentRetrieving {
 
     public String receiveComment(String n) {
         
@@ -39,4 +39,4 @@ public class CommentRetrieving {
     
 }
 
-}
+

@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package common_things;
+package Tests;
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import common_things.commentRetrieving;
+
 import static org.junit.Assert.*;
 
 /**
@@ -83,7 +86,7 @@ public class CommentRetrievingTest {
     {
         String matching = "test";
         String match = "";
-        CommentRetrieving comment = new CommentRetrieving();
+        commentRetrieving comment = new commentRetrieving();
         match = comment.receiveComment(match);
         
         assertEquals("these variable do not match.", matching, match);

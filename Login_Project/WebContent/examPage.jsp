@@ -31,6 +31,10 @@
 		System.out.println("Secret admin options");
 		
 	}
+	else 
+	{
+		System.out.println("Not admin");
+	}
 
 		
 		%>
