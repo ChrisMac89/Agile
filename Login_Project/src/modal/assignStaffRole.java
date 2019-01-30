@@ -62,7 +62,7 @@ public class assignStaffRole extends HttpServlet {
 		            statement.setString(2, request.getParameter("internalModerator"));
 		            statement.setString(3, request.getParameter("examCommitee"));
 		            statement.setString(4, request.getParameter("externalModerator"));
-		            statement.setString(1, request.getParameter("examId"));
+		            statement.setString(5, request.getParameter("examId"));
 	            }
 	            else {
 	            	String sql = "INSERT INTO staffroles (examId, examSetter, internalModerator, examCommitee, externalModerator) values (?, ?, ?, ?, ?)";
@@ -111,8 +111,9 @@ public class assignStaffRole extends HttpServlet {
             request.setAttribute("Message", message);
              
             // forwards to the message page
-            getServletContext().getRequestDispatcher("/profile/view/Message.jsp").forward(request, response);
-            
+            //getServletContext().getRequestDispatcher("/profile/view/Message.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/examPage.jsp?exmaId=" + request.getParameter("examId")).forward(request, response);
+
         }
 		
 		
@@ -125,6 +126,8 @@ public class assignStaffRole extends HttpServlet {
 		DB_Connection obj_DB_Connection = new DB_Connection();
 		Connection connection = obj_DB_Connection.getConnection();
 		int valueReceived = 0;
+		
+		
 		
 		try 
     	{
@@ -142,7 +145,8 @@ public class assignStaffRole extends HttpServlet {
 	            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 	            
 	 
-	            // constructs SQL statement
+	         // constructs SQL statement
+	         // constructs SQL statement
 	            String sql = "SELECT ( EXISTS(SELECT * FROM staffroles WHERE examId = ?))";
 	            PreparedStatement statement = connection.prepareStatement(sql);
 	            statement.setString(1, examId);
@@ -151,7 +155,10 @@ public class assignStaffRole extends HttpServlet {
 	            // sends the statement to the database server
 	            
 	            
-	            statement.executeUpdate();
+	            statement.executeQuery();
+	            
+
+	            
 	            ResultSet results = statement.getResultSet();
 	            results.next();
 	            valueReceived = results.getInt(1);
