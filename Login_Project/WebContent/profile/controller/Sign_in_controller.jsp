@@ -13,12 +13,12 @@
 <body>
  
 <jsp:useBean id="obj_Login_Bean" class="bean.Login_Bean"></jsp:useBean>
-<jsp:setProperty property="*" name="obj_Login_Bean"/>
+<jsp:setProperty property="*" name="obj_Login_Bean"/> 
 
 <%
 System.out.println(obj_Login_Bean.getEmail());
 System.out.println(obj_Login_Bean.getPassword());
-System.out.println(obj_Login_Bean.getPosition()); 
+System.out.println(obj_Login_Bean.getPosition());  
 
 
 Login_Modal obj_Login_Modal = new Login_Modal(); 
@@ -73,11 +73,11 @@ if(flag && (obj_Login_Bean.getPosition().equals("ExternalModerator"))){
 	<% 
 }if(flag && (obj_Login_Bean.getPosition().equals("SchoolOffice"))){
 	
-	session.setAttribute("user_session", obj_Login_Bean); 
+	session.setAttribute("school_office_session", obj_Login_Bean); 
 	%>
 	<script type="text/javascript">
 	<%--window.location.href="http://silva.computing.dundee.ac.uk/2018-agileteam2/user-home-page/<%=obj_Login_Bean.getEmail()%>"; --%>
-	window.location.href="http://localhost:8080/Login_Project/user-home-page";
+	window.location.href="http://localhost:8080/Login_Project/profile/view/SchoolOffice.jsp";
 	</script>
 	<% 
 }else {
