@@ -330,7 +330,7 @@
 			<form action="profile/view/PostComment.jsp?examId=<%= meta.getExamCode() %>" method="POST">
 				<textarea name = "comment" style="width: 467px; height: 177px;"></textarea>
 				<br>
-				<br> <input type="checkbox" name="signed" value="true"> Mark this as complete <br>
+				<br> <input type="checkbox" name="signed" value="true"> Mark this as complete &nbsp; <input type="checkbox" name="signed" value="false"> Mark as rejected<br>
 				<br> <input type="submit" value="Submit"> 
 			</form>
 

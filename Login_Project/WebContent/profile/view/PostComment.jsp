@@ -17,7 +17,8 @@
 	<%@ page import="bean.Login_Bean"%>
 	<%@ page import="modal.Login_Modal"%>
 	
-	
+	<!-- Written by Juri -->
+	<!-- Reviewed by John -->
 	<%
 	Login_Bean obj_Login_Bean = (Login_Bean)session.getAttribute("user_session");
 	if(obj_Login_Bean == null){
@@ -49,6 +50,7 @@
 		
 		
 		String signature = request.getParameter("signed");
+		//String reject = request.getParameter("reject");
 		Comment com = new Comment();
 		com.connect();
 		//com.query("INSERT INTO comments (message, commenter, position, examId) VALUES ('" + comment + "', '" + user + "', '" + position + "', '" + id2 + "')");
@@ -68,6 +70,7 @@
 
 	int i=st.executeUpdate("INSERT INTO comments (message, commenter, position, examId) VALUES ('" + comment + "', '" + user + "', '" + position + "', '" + id2 + "')");
 	
+	
 			if (position.equals("ExternalModerator") && signature.equals("true"))
 			{
 				int j = st1.executeUpdate("UPDATE staffroles SET externalModeratorSignature = true WHERE examId =" + id);
@@ -85,12 +88,20 @@
 			else if (position.equals("ExamCommitee") && signature.equals("true"))
 			{
 				int j = st1.executeUpdate("UPDATE staffroles SET examCommiteeSignature = true WHERE examId =" + id);
-			}
+			} 
+			
+			
+			else if (signature.equals("false"))
+			{
+				int j = st1.executeUpdate("UPDATE staffroles SET externalModeratorSignature = false , internalModeratorSignature = false , examSetterSignature = false , examCommiteeSignature = false  WHERE examId =" + id);
+				int k = st2.executeUpdate("UPDATE exam SET stage ='New' WHERE examId=" + id);
+			}	
 			
 			
 	
 		st.close();
 		st1.close();
+		st2.close();
 		conn.close();
 	}
 	catch(Exception e)
