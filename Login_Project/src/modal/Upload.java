@@ -113,6 +113,7 @@ public class Upload extends HttpServlet {
 	            
 	            
 	            
+	            
 	            String sql2 = "INSERT INTO staffroles (examSetterSignature, internalModeratorSignature, examCommiteeSignature, externalModeratorSignature, examSetterDeadline, internalModeratorDeadline, examCommiteeDeadline, externalModeratorDeadline) values ('0','0','0','0',NOW() + INTERVAL 1 WEEK,NOW() + INTERVAL 2 WEEK,NOW() + INTERVAL 3 WEEK,NOW() + INTERVAL 4 WEEK)";
 	            //,?,?,?,?,?,?,?
 	            //, examId, examType, moduleId, moduleCoordinator, examLevel, examYear, examFormat
