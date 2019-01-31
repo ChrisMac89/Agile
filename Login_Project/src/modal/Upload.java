@@ -98,26 +98,26 @@ public class Upload extends HttpServlet {
 	            
 	 
 	            // constructs SQL statement
-	            String sql = "INSERT INTO exam (file, examTitle, examId, examType, moduleId, moduleCoordinator, examLevel, examYear, examFormat) values (?,?,?,?,?,?,?,?,?)";
+	            String sql = "INSERT INTO exam (file, examTitle, examType, moduleId, moduleCoordinator, examLevel, examYear, examFormat) values (?,?,?,?,?,?,?,?)";
 	            //,?,?,?,?,?,?,?
 	            //, examId, examType, moduleId, moduleCoordinator, examLevel, examYear, examFormat
 	            PreparedStatement statement = connection.prepareStatement(sql);
 	            statement.setString(2, request.getParameter("examTitle"));
-	            statement.setString(3, request.getParameter("examId"));
-	            statement.setString(4, request.getParameter("examType"));
-	            statement.setString(5, request.getParameter("moduleId"));
-	            statement.setString(6, request.getParameter("moduleCoordinator"));
-	            statement.setString(7, request.getParameter("examLevel"));
-	            statement.setString(8, request.getParameter("examYear"));
-	            statement.setString(9, request.getParameter("examFormat"));
+	          
+	            statement.setString(3, request.getParameter("examType"));
+	            statement.setString(4, request.getParameter("moduleId"));
+	            statement.setString(5, request.getParameter("moduleCoordinator"));
+	            statement.setString(6, request.getParameter("examLevel"));
+	            statement.setString(7, request.getParameter("examYear"));
+	            statement.setString(8, request.getParameter("examFormat"));
 	            
 	            
 	            
-	            String sql2 = "INSERT INTO staffroles (examId, examSetterSignature, internalModeratorSignature, examCommiteeSignature, externalModeratorSignature, examSetterDeadline, internalModeratorDeadline, examCommiteeDeadline, externalModeratorDeadline) values (?,'0','0','0','0',NOW() + INTERVAL 1 WEEK,NOW() + INTERVAL 2 WEEK,NOW() + INTERVAL 3 WEEK,NOW() + INTERVAL 4 WEEK)";
+	            String sql2 = "INSERT INTO staffroles (examSetterSignature, internalModeratorSignature, examCommiteeSignature, externalModeratorSignature, examSetterDeadline, internalModeratorDeadline, examCommiteeDeadline, externalModeratorDeadline) values ('0','0','0','0',NOW() + INTERVAL 1 WEEK,NOW() + INTERVAL 2 WEEK,NOW() + INTERVAL 3 WEEK,NOW() + INTERVAL 4 WEEK)";
 	            //,?,?,?,?,?,?,?
 	            //, examId, examType, moduleId, moduleCoordinator, examLevel, examYear, examFormat
 	            PreparedStatement statement2 = connection.prepareStatement(sql2);
-	            statement2.setString(1, request.getParameter("examId"));
+	            
 	            
 	            
 	            statement2.executeUpdate();

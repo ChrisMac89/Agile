@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 
 <!-- Author: Mathew -->
-
+<%@page import="modal.Login_Modal"%>
+<%@page import="bean.Login_Bean"%>
 <%@ page import="java.sql.ResultSet"%>
 <%@ page import="java.sql.Statement"%>
 <%@ page import="java.sql.Connection"%>
@@ -36,7 +37,12 @@
 </head>
 <body>
 	<%
+	Login_Modal obj_Login_Modal = new Login_Modal(); 
+	
 	Login_Bean obj_Login_Bean = (Login_Bean)session.getAttribute("user_session");
+		
+	
+		
 	if(obj_Login_Bean == null){
 		session.setAttribute("login_message", "Please Login First");
 		%>
@@ -46,6 +52,7 @@
 		</script>
 	<% 
 	}
+	
 %>
 
 <div class="row-fluid">
@@ -70,6 +77,7 @@
 						<td>Module Code</td>
 						<td>Exam Title</td> 
 						<td>Status</td>
+						<td>Deadline</td>
 						
 					</tr>
 					
@@ -77,11 +85,43 @@
 <%
    try
    {
+	   
+	   String position = obj_Login_Bean.getPosition();
+	   System.out.println("Position: " + position);
+	   
        Class.forName("com.mysql.jdbc.Driver");
        String url="jdbc:mysql://silva.computing.dundee.ac.uk:3306/18agileteam2db";
        String username="18agileteam2";
        String password="8474.at2.4748";
+       
+       
+       
+       
        String query="SELECT exam, examTitle, examId, solution, stage, resitExam FROM exam";
+       
+       String deadlineQuery = "";
+       
+       switch (position) {
+       	case "TeachingStaff": 
+       		deadlineQuery = "SELECT examId, examSetterDeadline, internalModeratorDeadline, examCommiteeDeadline, externalModeratorDeadline FROM staffroles";
+    	   break;
+       	case "Admin":
+       		deadlineQuery = "SELECT examId, examSetterDeadline, internalModeratorDeadline, examCommiteeDeadline, externalModeratorDeadline FROM staffroles";
+       		break;
+       	case "ExternalModerator":
+       		deadlineQuery = "SELECT examId, examSetterDeadline, internalModeratorDeadline, examCommiteeDeadline, externalModeratorDeadline FROM staffroles";
+       		break;
+       	case "ExamCommitee":
+       		deadlineQuery = "SELECT examId, examSetterDeadline, internalModeratorDeadline, examCommiteeDeadline, externalModeratorDeadline FROM staffroles";
+       		break;
+       	default:
+       		System.out.println("Default reached");
+       
+       }
+
+    		   
+    		   
+    		   
        Connection conn=DriverManager.getConnection(url, username, password);
        Statement stmt=conn.createStatement();
        ResultSet rs=stmt.executeQuery(query);
