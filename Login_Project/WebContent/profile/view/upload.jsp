@@ -98,7 +98,42 @@
        
        
        
-       String query="SELECT exam, examTitle, examId, solution, stage, resitExam FROM exam";
+       //String query="SELECT exam, examTitle, examId, solution, stage, resitExam FROM exam";
+       //String query="SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t2.examSetterSignature = 0 AND t1.examId = t2.examId";
+       
+		String query = "";
+       
+       switch (position) {
+       	case "TeachingStaff": 
+       		query = "SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t2.examSetterSignature = 0 AND t1.examId = t2.examId";
+    	   break;
+       	case "InternalModerator":
+       		query = "SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t2.internalModeratorSignature = 0 AND t2.examSetterSignature=1 AND t1.examId = t2.examId";
+       		break;
+       	case "ExamCommitee":
+       		query = "SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t2.examSetterSignature=1 AND t2.internalModeratorSignature = 1  AND t2.examCommiteeSignature = 0 AND t1.examId = t2.examId";
+       		break;
+       	case "ExternalModerator":
+       		query = "SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t2.examSetterSignature=1 AND t2.internalModeratorSignature = 1  AND t2.examCommiteeSignature = 1 AND t2.externalModeratorSignature = 0 AND t1.examId = t2.examId";
+       		break;
+       	case "SchoolOffice":
+       		query = "SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t2.examSetterSignature=1 AND t2.internalModeratorSignature = 1  AND t2.examCommiteeSignature = 1 AND t2.externalModeratorSignature = 1 AND t1.examId = t2.examId";
+       		break;
+       	default:
+       		System.out.println("Default reached");
+       
+       }
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
        
        String deadlineQuery = "";
        

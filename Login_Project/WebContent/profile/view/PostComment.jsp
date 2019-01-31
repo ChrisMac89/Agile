@@ -63,12 +63,15 @@
 	Connection conn = DriverManager.getConnection("jdbc:mysql://silva.computing.dundee.ac.uk:3306/18agileteam2db", "18agileteam2", "8474.at2.4748");
 	Statement st=conn.createStatement();
 	Statement st1=conn.createStatement();
+	Statement st2=conn.createStatement();
+
 
 	int i=st.executeUpdate("INSERT INTO comments (message, commenter, position, examId) VALUES ('" + comment + "', '" + user + "', '" + position + "', '" + id2 + "')");
 	
 			if (position.equals("ExternalModerator") && signature.equals("true"))
 			{
 				int j = st1.executeUpdate("UPDATE staffroles SET externalModeratorSignature = true WHERE examId =" + id);
+				int k = st2.executeUpdate("UPDATE exam SET stage ='Completed' WHERE examId=" + id);
 			}	
 			else if (position.equals("InternalModerator") && signature.equals("true"))
 			{
@@ -77,11 +80,14 @@
 			else if (position.equals("TeachingStaff") && signature.equals("true"))
 			{
 				int j = st1.executeUpdate("UPDATE staffroles SET examSetterSignature = true WHERE examId =" + id);
+				int k = st2.executeUpdate("UPDATE exam SET stage ='In-Progress' WHERE examId=" + id);
 			}
 			else if (position.equals("ExamCommitee") && signature.equals("true"))
 			{
 				int j = st1.executeUpdate("UPDATE staffroles SET examCommiteeSignature = true WHERE examId =" + id);
 			}
+			
+			
 	
 		st.close();
 		st1.close();
