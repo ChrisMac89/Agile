@@ -71,66 +71,51 @@
 			<table style="border-color: #000000;">
 				<tr>
 					<td style="width: 180px;"><p class=>
-							<i class=></i> Exam Title:
-						</p></td>
-					<td style="width: 294px;"><%=meta.getTitle() %></td>
+							<i class=></i> Exam Title:</p></td>
+					<td style="width: 294px;"> <input type="text" name="examTitle" value="<%=meta.getTitle() %>"></td>
 				</tr>
 
 				<tr>
-					<td><p class=>
-							<i class=></i> Exam ID:
-						</p></td>
-					<td><%=meta.getExamCode() %></td>
+					<td><p class=><i class=></i> Exam ID:</p></td>
+					<td><input type="text" name="examTitle" value="<%=meta.getExamCode() %>"></td>
 				</tr>
 
 				<tr>
-					<td><p>
-							<i class=></i> Exam Type:
-						</p></td>
-					<td><%=meta.getType() %></td>
+					<td><p>	<i class=></i> Exam Type:</p></td>
+					<td><input type="text" name="examType" value="<%=meta.getType() %>"></td>
 				</tr>
 
 				<tr>
 					<td>
-						<p>
-							<i class=></i> Module Code:
-						</p>
+						<p>	<i class=></i> Module Code:</p>
 					</td>
-					<td><%=meta.getModCode() %></td>
+					<td><input type="text" name="moduleCode" value="<%=meta.getModCode() %>"></td>
 				</tr>
 
 				<tr>
 					<td>
-						<p>
-							<i class=></i> Module Coordinator:
-						</p>
+						<p>	<i class=></i> Module Coordinator:</p>
 					</td>
-					<td><%=meta.getCoord() %></td>
+					<td><input type="text" name="moduleCoord" value="<%=meta.getCoord() %>"></td>
 				</tr>
 
 				<tr>
 					<td>
-						<p>
-							<i class=></i> Level:
-						</p>
+						<p>	<i class=></i> Level:</p>
 					</td>
-					<td><%=meta.getLevel() %></td>
+					<td><input type="text" name="examLevel" value="<%=meta.getLevel() %>"></td>
 				</tr>
 
 				<tr>
-					<td><p>
-							<i class=></i> Year:
-						</p></td>
-					<td><%=meta.getYear() %></td>
+					<td><p>	<i class=></i> Year:</p></td>
+					<td><input type="text" name="examYear" value="<%=meta.getYear() %>"></td>
 				</tr>
 
 				<tr>
 					<td>
-						<p>
-							<i class=></i> Format:
-						</p>
+						<p>	<i class=></i> Format:</p>
 					</td>
-					<td><%=meta.getFormat() %></td>
+					<td><input type="text" name="examFormat" value="<%=meta.getFormat() %>"></td>
 				</tr>
 			</table>
 			
@@ -284,18 +269,20 @@
 			
 			
 			<!-- Bottom -->
-			
-			
-			
-			
-			
-			
-			
-			
+					
 
-			<a class="btn btn-primary"
+
+<br>
+					<table style="width: 437px; ">
+						<tr><td><a class="btn btn-primary"
 				href="profile/view/view_file.jsp?examId=<%out.print(meta.getExamCode());%>"
-				target="_blank" role="button">Download Exam</a> <br>
+				target="_blank" role="button">Download Exam</a> </td>
+				
+				<td><a class="btn btn-primary"
+				href="profile/view/view_Solutionfile.jsp?examId=<%out.print(meta.getExamCode());%>"
+				target="_blank" role="button">Download Solution</a> </td>
+						</tr>
+					</table>
 			<br>
 			<br>
 			<p><b>Comments:</b></p>
