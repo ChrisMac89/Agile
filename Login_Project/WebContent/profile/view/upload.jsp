@@ -102,19 +102,24 @@
        //String query="SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t2.examSetterSignature = 0 AND t1.examId = t2.examId";
        
 		String query = "";
+		String deadline = "";
        
        switch (position) {
        	case "TeachingStaff": 
        		query = "SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t2.examSetterSignature = 0 AND t1.examId = t2.examId";
+       		deadline = "examSetterDeadline";
     	   break;
        	case "InternalModerator":
        		query = "SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t2.internalModeratorSignature = 0 AND t2.examSetterSignature=1 AND t1.examId = t2.examId";
+       		deadline = "internalModeratorDeadline";
        		break;
        	case "ExamCommitee":
        		query = "SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t2.examSetterSignature=1 AND t2.internalModeratorSignature = 1  AND t2.examCommiteeSignature = 0 AND t1.examId = t2.examId";
+       		deadline = "examCommiteeDeadline";
        		break;
        	case "ExternalModerator":
        		query = "SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t2.examSetterSignature=1 AND t2.internalModeratorSignature = 1  AND t2.examCommiteeSignature = 1 AND t2.externalModeratorSignature = 0 AND t1.examId = t2.examId";
+       		deadline = "externalModeratorDeadline";
        		break;
        	case "SchoolOffice":
        		query = "SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t2.examSetterSignature=1 AND t2.internalModeratorSignature = 1  AND t2.examCommiteeSignature = 1 AND t2.externalModeratorSignature = 1 AND t1.examId = t2.examId";
@@ -226,15 +231,17 @@ else {
 						<td style="background-color:<%=myColor %>;">
 							<%out.println(rs.getString("stage")); %>
 						</td>
+						
+						<td>
+							<%=rs.getString(deadline)%>
+						</td>
 					</tr>
 
 					<%
        }
    %>
-					<%=rs.getString("resitExam") %>
-					<td><%=rs.getString("exam") %></td>
-					<%=rs.getString("examTitle") %>
-					<td><%=rs.getString("stage") %></td>
+
+
 					<%
         rs.close();
         stmt.close();

@@ -66,7 +66,7 @@ public class assignStaffRole extends HttpServlet {
 		            statement.setString(5, request.getParameter("examId"));
 	            }
 	            else {
-	            	String sql = "INSERT INTO staffroles (examId, examSetter, internalModerator, examCommitee, externalModerator, examSetterSignature, internalModeratorSignature, examCommiteeSignature, externalModeratorSignature, examSetterDeadline, internalModeratorDeadline, examCommiteeDeadline, externalModeratorDeadline) values (?, ?, ?, ?, ?, '0', '0', '0','0', NOW() + INTERVAL 1 WEEK, NOW() + INTERVAL 2 WEEK, NOW() + INTERVAL 2 WEEK, NOW() + INTERVAL 3 WEEK)";
+	            	String sql = "INSERT INTO staffroles (examId, examSetter, internalModerator, examCommitee, externalModerator, examSetterSignature, internalModeratorSignature, examCommiteeSignature, externalModeratorSignature, examSetterDeadline, internalModeratorDeadline, examCommiteeDeadline, externalModeratorDeadline) values (?, ?, ?, ?, ?, '0', '0', '0','0', NOW() + INTERVAL 1 WEEK, NOW() + INTERVAL 2 WEEK, NOW() + INTERVAL 3 WEEK, NOW() + INTERVAL 4 WEEK)";
 		            statement = connection.prepareStatement(sql);
 
 		          //  "INSERT INTO staffroles (examSetterSignature, internalModeratorSignature, examCommiteeSignature, externalModeratorSignature, examSetterDeadline, internalModeratorDeadline, examCommiteeDeadline, externalModeratorDeadline) values ('0','0','0','0','0','0','0','0',NOW() + INTERVAL 1 WEEK,NOW() + INTERVAL 2 WEEK,NOW() + INTERVAL 3 WEEK,NOW() + INTERVAL 4 WEEK)";

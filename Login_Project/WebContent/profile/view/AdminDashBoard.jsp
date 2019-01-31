@@ -81,6 +81,10 @@
 						<td>Exam Title</td>
 						<td>Module Code</td>
 						<td>Status</td>
+						<td>Exam Setter Deadline</td>
+						<td>Internal Moderator Deadline</td>
+						<td>Exam Committee Deadline</td>
+						<td>External Moderator Deadline</td>
 					</tr>
 					<%
    try
@@ -88,7 +92,7 @@
 		DB_Connection obj_DB_Connection = new DB_Connection();
 		Connection connection = obj_DB_Connection.getConnection();
 		
-       String query="SELECT exam, examTitle,moduleId, examId, solution, stage, resitExam FROM exam";
+       String query="SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t2.examSetterSignature = 0 AND t1.examId = t2.examId";
        PreparedStatement statement = connection.prepareStatement(query);
        ResultSet rs=statement.executeQuery(query);
        while(rs.next())
@@ -151,6 +155,19 @@ else {
 						</td>
 						<td style="background-color:<%=myColor %>;">
 							<%out.println(rs.getString("stage")); %>
+						</td>
+						
+						<td>
+							<%out.println(rs.getString("examSetterDeadline")); %>
+						</td>
+						<td>
+							<%out.println(rs.getString("internalModeratorDeadline")); %>
+						</td>
+						<td>
+							<%out.println(rs.getString("examCommiteeDeadline")); %>
+						</td>
+						<td>
+							<%out.println(rs.getString("externalModeratorDeadline")); %>
 						</td>
 					</tr>
 
