@@ -78,8 +78,8 @@
 				<table style="color: #000000;" border="2">
 					<tr>
 						<td>Resit</td>
-						<td>Exam</td>
-						<td>Solution</td>
+						<td>Exam Title</td>
+						<td>Module Code</td>
 						<td>Status</td>
 					</tr>
 					<%
@@ -88,7 +88,7 @@
 		DB_Connection obj_DB_Connection = new DB_Connection();
 		Connection connection = obj_DB_Connection.getConnection();
 		
-       String query="SELECT exam, examId, solution, stage, resitExam FROM exam";
+       String query="SELECT exam, examTitle,moduleId, examId, solution, stage, resitExam FROM exam";
        PreparedStatement statement = connection.prepareStatement(query);
        ResultSet rs=statement.executeQuery(query);
        while(rs.next())
@@ -136,7 +136,7 @@ else {
 							<%out.println(rs.getString("resitExam")); %>
 						</td>
 						<td><a
-							href="http://localhost:8080/Login_Project/examPage.jsp?examId=<%out.print(rs.getString("examId"));%>"><%=rs.getString("exam") %></a>
+							href="http://localhost:8080/Login_Project/examPage.jsp?examId=<%out.print(rs.getString("examId"));%>"><%=rs.getString("examTitle") %></a>
 							</td>
 
 
@@ -145,13 +145,10 @@ else {
 						<!-- </a> -->
 						<!-- </td> -->
 
-						<td><a
-							href="http://localhost:8080/<%=rs.getString("solution") %>">
+						<td>
 
-								<!--  <a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/<%=rs.getString("solution") %>"> -->
-
-								<%out.println(rs.getString("solution")); %>
-						</a></td>
+								<%out.println(rs.getString("moduleId")); %>
+						</td>
 						<td style="background-color:<%=myColor %>;">
 							<%out.println(rs.getString("stage")); %>
 						</td>
@@ -161,8 +158,8 @@ else {
        }
    %>
 					<%=rs.getString("resitExam") %>
-					<td><%=rs.getString("exam") %></td>
-					<td><%=rs.getString("solution") %></td>
+					<td><%=rs.getString("examTitle") %></td>
+					<td><%=rs.getString("moduleId") %></td>
 					<td><%=rs.getString("stage") %></td>
 					<%
         rs.close();

@@ -80,8 +80,8 @@
 				<table style="color: #000000;" border="2">
 					<tr>
 						<td>Resit</td>
-						<td>Exam</td>
-						<td>Solution</td>
+						<td>Exam Title</td>
+						<td>Module Code</td>
 						<td>Status</td>
 						<td>Download Exam</td>
 						
@@ -96,7 +96,7 @@
        String url="jdbc:mysql://silva.computing.dundee.ac.uk:3306/18agileteam2db";
        String username="18agileteam2";
        String password="8474.at2.4748";
-       String query="SELECT exam, examId, examTitle, solution, stage, resitExam FROM exam";
+       String query="SELECT exam, examId,moduleId, examTitle, solution, stage, resitExam FROM exam";
        Connection conn=DriverManager.getConnection(url, username, password);
        Statement stmt=conn.createStatement();
        ResultSet rs=stmt.executeQuery(query);
@@ -150,7 +150,7 @@ else {
 						</td>
 						<td>
 						<!-- <a
-							href="http://localhost:8080/Login_Project/examPage.jsp?examId=<%out.print(rs.getString("examId"));%>">--><%=rs.getString("exam") %></a>
+							href="http://localhost:8080/Login_Project/examPage.jsp?examId=<%out.print(rs.getString("examId"));%>">--><%=rs.getString("examTitle") %></a>
 							</center></td>
 
 
@@ -165,7 +165,7 @@ else {
 
 								<!--  <a href="http://silva.computing.dundee.ac.uk/2018-agileteam2/<%=rs.getString("solution") %>"> -->
 
-								<%out.println(rs.getString("examTitle")); %>
+								<%out.println(rs.getString("moduleId")); %>
 						</a></td>
 					
 						<td style="background-color:<%=myColor %>;">
@@ -193,8 +193,8 @@ else {
        }
    %>
 					<%=rs.getString("resitExam") %>
-					<td><%=rs.getString("exam") %></td>
 					<td><%=rs.getString("examTitle") %></td>
+					<td><%=rs.getString("moduleId") %></td>
 					<td><%=rs.getString("stage") %></td>
 					<%
         rs.close();
