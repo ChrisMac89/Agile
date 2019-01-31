@@ -17,6 +17,15 @@
 	<div class="bodycontainer">
 	<div class="Tablecontainer">
 <div class="cc">
+
+<span>
+  <a class="increase">+</a> |
+  <a class="decrease">-</a> |
+  <a class="reset">reset</a>
+</span>
+		
+	
+<div class="resizable">
         <h3><%=request.getAttribute("Message")%></h3>
         </div>
         <br><br>
@@ -25,6 +34,6 @@
         	<br><br>
         </div>
         </div>
-    
+    </div>
 </body>
 </html>

@@ -52,7 +52,14 @@
 <div class="row-fluid">
 	<div class="bodycontainer">
 
- 
+ <span>
+  <a class="increase">+</a> |
+  <a class="decrease">-</a> |
+  <a class="reset">reset</a>
+</span>
+		
+	
+<div class="resizable">
 		
 		<h2 style="color: #5e9ca0; text-align: center;">
 			<span style="color: black;">Archives</span>
@@ -146,7 +153,7 @@
 <br><br>
 </div>
 	</div>
-
+</div>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>

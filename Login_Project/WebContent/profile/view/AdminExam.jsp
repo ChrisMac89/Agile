@@ -134,7 +134,14 @@
 
 <div class="row-fluid">
 	<div class="bodycontainer">
-
+<span>
+  <a class="increase">+</a> |
+  <a class="decrease">-</a> |
+  <a class="reset">reset</a>
+</span>
+		
+	
+<div class="resizable">
 
 
 		
@@ -240,7 +247,7 @@
 
 	</div>
 
-
+</div>
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

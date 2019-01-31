@@ -51,7 +51,14 @@
 
 	<div class="bodycontainer">
 
-
+<span>
+  <a class="increase">+</a> |
+  <a class="decrease">-</a> |
+  <a class="reset">reset</a>
+</span>
+		
+	
+<div class="resizable">
 		
 		<h2 style="color: #5e9ca0; text-align: center;">
 			<span style="color: black;">Create Exam</span>
@@ -93,7 +100,7 @@
 				href="http://localhost:8080/Login_Project/user-home-page">Go
 				Back</a>
 		</div>
-
+</div>
 		<br> <br>
 		
 		<!-- Bootstrap core JavaScript -->

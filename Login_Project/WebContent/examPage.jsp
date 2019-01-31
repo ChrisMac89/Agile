@@ -47,7 +47,14 @@
 		%>
 <div class="row-fluid">
 	<div class="bodycontainer">
-
+<span>
+  <a class="increase">+</a> |
+  <a class="decrease">-</a> |
+  <a class="reset">reset</a>
+</span>
+		
+	
+<div class="resizable">
 		<%@ page import="common_things.metadata"%>
  
 		<%
@@ -338,7 +345,7 @@
 			<a class="btn btn-danger float-right"href="http://localhost:8080/Login_Project/user-home-page">Go Back</a>
 			<br><br>
 			
-			
+			</div>
 
 		</div>
 </div>

@@ -58,7 +58,14 @@
 <div class="row-fluid">
 	<div class="bodycontainer">
 
-
+<span>
+  <a class="increase">+</a> |
+  <a class="decrease">-</a> |
+  <a class="reset">reset</a>
+</span>
+		
+	
+<div class="resizable">
 		
 		<h2 style="color: #5e9ca0; text-align: center;">
 			<span style="color: black;">Dashboard</span>
@@ -264,7 +271,7 @@ else {
 				href="http://localhost:8080/Login_Project/Signoutcontroller">Log
 				Out</a>
 		</div>
-
+</div>
 
 	</div>
 </div>
