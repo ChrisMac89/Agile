@@ -71,51 +71,66 @@
 			<table style="border-color: #000000;">
 				<tr>
 					<td style="width: 180px;"><p class=>
-							<i class=></i> Exam Title:</p></td>
-					<td style="width: 294px;"> <input type="text" name="examTitle" value="<%=meta.getTitle() %>"></td>
+							<i class=></i> Exam Title:
+						</p></td>
+					<td style="width: 294px;"><%=meta.getTitle() %></td>
 				</tr>
 
 				<tr>
-					<td><p class=><i class=></i> Exam ID:</p></td>
-					<td><input type="text" name="examTitle" value="<%=meta.getExamCode() %>"></td>
+					<td><p class=>
+							<i class=></i> Exam ID:
+						</p></td>
+					<td><%=meta.getExamCode() %></td>
 				</tr>
 
 				<tr>
-					<td><p>	<i class=></i> Exam Type:</p></td>
-					<td><input type="text" name="examType" value="<%=meta.getType() %>"></td>
-				</tr>
-
-				<tr>
-					<td>
-						<p>	<i class=></i> Module Code:</p>
-					</td>
-					<td><input type="text" name="moduleCode" value="<%=meta.getModCode() %>"></td>
-				</tr>
-
-				<tr>
-					<td>
-						<p>	<i class=></i> Module Coordinator:</p>
-					</td>
-					<td><input type="text" name="moduleCoord" value="<%=meta.getCoord() %>"></td>
+					<td><p>
+							<i class=></i> Exam Type:
+						</p></td>
+					<td><%=meta.getType() %></td>
 				</tr>
 
 				<tr>
 					<td>
-						<p>	<i class=></i> Level:</p>
+						<p>
+							<i class=></i> Module Code:
+						</p>
 					</td>
-					<td><input type="text" name="examLevel" value="<%=meta.getLevel() %>"></td>
-				</tr>
-
-				<tr>
-					<td><p>	<i class=></i> Year:</p></td>
-					<td><input type="text" name="examYear" value="<%=meta.getYear() %>"></td>
+					<td><%=meta.getModCode() %></td>
 				</tr>
 
 				<tr>
 					<td>
-						<p>	<i class=></i> Format:</p>
+						<p>
+							<i class=></i> Module Coordinator:
+						</p>
 					</td>
-					<td><input type="text" name="examFormat" value="<%=meta.getFormat() %>"></td>
+					<td><%=meta.getCoord() %></td>
+				</tr>
+
+				<tr>
+					<td>
+						<p>
+							<i class=></i> Level:
+						</p>
+					</td>
+					<td><%=meta.getLevel() %></td>
+				</tr>
+
+				<tr>
+					<td><p>
+							<i class=></i> Year:
+						</p></td>
+					<td><%=meta.getYear() %></td>
+				</tr>
+
+				<tr>
+					<td>
+						<p>
+							<i class=></i> Format:
+						</p>
+					</td>
+					<td><%=meta.getFormat() %></td>
 				</tr>
 			</table>
 			
@@ -269,19 +284,18 @@
 			
 			
 			<!-- Bottom -->
+			
+			
+			
+			
+			
+			
+			
+			
 
-					<table style="width: 437px; ">
-						<tr>
-							<td><a class="btn btn-primary"
+			<a class="btn btn-primary"
 				href="profile/view/view_file.jsp?examId=<%out.print(meta.getExamCode());%>"
-				target="_blank" role="button">Download Exam</a> <br></td>
-							<td><a class="btn btn-primary"
-				href="profile/view/view_Solutionfile.jsp?examId=<%out.print(meta.getExamCode());%>"
-				target="_blank" role="button">Download Solution</a> <br></td>
-						</tr>
-					</table>
-
-					
+				target="_blank" role="button">Download Exam</a> <br>
 			<br>
 			<br>
 			<p><b>Comments:</b></p>
@@ -329,7 +343,7 @@
 			<form action="profile/view/PostComment.jsp?examId=<%= meta.getExamCode() %>" method="POST">
 				<textarea name = "comment" style="width: 467px; height: 177px;"></textarea>
 				<br>
-				<br> <input type="checkbox"> Mark this as complete <br>
+				<br> <input type="checkbox" name="signed" value="true"> Mark this as complete <br>
 				<br> <input type="submit" value="Submit"> 
 			</form>
 
