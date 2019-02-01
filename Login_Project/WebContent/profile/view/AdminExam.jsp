@@ -163,11 +163,11 @@
 				<br> Exam Title:<br> <input type="text" name="examTitle" style="width: 312px;"/> <br>
 				<br> Exam ID:<br> <input type="text" name="examID" style="width: 312px;"/> <br>
 				<br> Exam Type:<br> <input type="text" name="examType" style="width: 312px;"/> <br>
-				<br> Module Code:<br> <input type="text" name="moduleCode" style="width: 312px;"/> <br>
+				<br> Module Code:<br> <input type="text" name="moduleId" style="width: 312px;"/> <br>
 				<br> Module Coordinator:<br> <input type="text" name="moduleCoordinator" style="width: 312px;"/> <br>
-				<br> Level:<br> <input type="text" name="level" style="width: 312px;"/> <br>
-				<br> Year:<br> <input type="text" name="year" style="width: 312px;"/> <br>
-				<br> Format:<br> <input type="text" name="format" style="width: 312px;"/> <br>
+				<br> Level:<br> <input type="text" name="examLevel" style="width: 312px;"/> <br>
+				<br> Year:<br> <input type="text" name="examYear" style="width: 312px;"/> <br>
+				<br> Format:<br> <input type="text" name="examFormat" style="width: 312px;"/> <br>
 				<br>
 				<b>File Upload:</b><br>
 			Select a file to upload: <br />

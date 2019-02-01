@@ -30,7 +30,7 @@
         </div>
         <br><br>
         </div>
-        	<a class="btn btn-danger float-right"href="http://localhost:8080/Login_Project/user-home-page">Go Back</a>
+        	<a class="btn btn-danger float-right"href="javascript:history.back()">Go Back</a>
         	<br><br>
         </div>
         </div>

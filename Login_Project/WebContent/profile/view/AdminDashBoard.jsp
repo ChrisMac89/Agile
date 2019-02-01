@@ -99,7 +99,7 @@
 		DB_Connection obj_DB_Connection = new DB_Connection();
 		Connection connection = obj_DB_Connection.getConnection();
 		
-       String query="SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t2.examSetterSignature = 0 AND t1.examId = t2.examId";
+       String query="SELECT *  FROM exam t1 INNER JOIN staffroles t2 WHERE t1.examId = t2.examId";
        PreparedStatement statement = connection.prepareStatement(query);
        ResultSet rs=statement.executeQuery(query);
        while(rs.next())
